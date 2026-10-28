@@ -1,0 +1,12 @@
+{
+  "favor": true,
+  "reasons": "The DocStream AI document-processing platform meets the technical fit and security requirements. The implementation and training periods are reasonable, and the standard ERP connector and SSO support are beneficial. The provided penetration-test report after contract signature aligns with the company's security standard.",
+  "approval_conditions": "",
+  "concerns": "The cost is high, and there are no additional discounts or payment terms offered by Supplier Co.",
+  "evidence_used": [
+    {"source": "buyer_it_brief", "point": "responsibility"},
+    {"source": "buyer_it_brief", "point": "facts"},
+    {"source": "deal_terms", "point": "security"},
+    {"source": "supplier_offer", "point": "list_offer_usd"}
+  ]
+}

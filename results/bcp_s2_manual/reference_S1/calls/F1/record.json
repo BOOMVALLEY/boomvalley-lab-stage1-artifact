@@ -1,0 +1,188 @@
+{
+  "schema": "bcp-manual-call-record-1",
+  "evidence_class": "MANUAL HARNESS RECORD — not a BVL sealed package, not FULLMT-verified",
+  "call": "F1",
+  "sequence": 10,
+  "phase": "F",
+  "actor": "purchasing_director",
+  "role_ko": "구매 책임자 (전체 정보: 평가서 4건)",
+  "information": [
+    "director_brief",
+    "deal_terms",
+    "supplier_offer",
+    "eval_procurement",
+    "eval_it",
+    "eval_finance",
+    "eval_operations",
+    "world"
+  ],
+  "information_origin": {
+    "director_brief": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_rf/director_brief.json",
+      "sha256": "28a60a82036284beb163986ba1a64fbdc97f2dc25ab53c3ad26ec7048d76169e",
+      "reply_variant": "buyer_move",
+      "changed_field": "reply"
+    },
+    "deal_terms": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_rf/deal_terms.json",
+      "sha256": "949c89ff9bbd60ebbb5c0a194a122707a8b3bea62f4021a04e9add6b736e1e42"
+    },
+    "supplier_offer": {
+      "kind": "call_output",
+      "call": "P2",
+      "what": "World post_state offers.seller (layout of sources/supplier_offer.json)"
+    },
+    "eval_procurement": {
+      "kind": "call_output",
+      "call": "E4",
+      "what": "the four original evaluation fields (evidence_used is not passed on)"
+    },
+    "eval_it": {
+      "kind": "call_output",
+      "call": "E1",
+      "what": "the four original evaluation fields (evidence_used is not passed on)"
+    },
+    "eval_finance": {
+      "kind": "call_output",
+      "call": "E2",
+      "what": "the four original evaluation fields (evidence_used is not passed on)"
+    },
+    "eval_operations": {
+      "kind": "call_output",
+      "call": "E3",
+      "what": "the four original evaluation fields (evidence_used is not passed on)"
+    }
+  },
+  "model_requested": "qwen2.5:7b-instruct",
+  "model_answered": "qwen2.5:7b-instruct",
+  "adapter_provenance": "bvl.openai-chat-adapter:1;system_fingerprint=fp_ollama",
+  "model_server_record": {
+    "available": true,
+    "name": "qwen2.5:7b-instruct",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "modified_at": "2026-09-28T20:42:47.2380456+09:00",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "ggml"
+    }
+  },
+  "options": {
+    "temperature": 0,
+    "max_tokens": 512,
+    "response_format": "json_object"
+  },
+  "seed": 3162254119880391350,
+  "started_at": "2026-10-27T04:10:23.695+00:00",
+  "finished_at": "2026-10-27T04:10:33.869+00:00",
+  "duration_seconds": 10.174,
+  "request_file": "request.json",
+  "request_sha256": "c036f5606740b8dfdf2d4bf9bc78a9675f2e59945726f1d1ba3104fc2a2abe59",
+  "response_file": "response.bin",
+  "response_sha256": "0eb6c2a5e00cc8b095455ce374d6ef0c319300efe1311c5bdb6789986490cd63",
+  "raw_response": "{\n  \"side\": \"buyer\",\n  \"move\": \"accept\",\n  \"price\": 450000,\n  \"rationale\": \"The supplier's offer is within the approved budget and meets the technical, operational, and security requirements. The expected savings and the company's financial stability of the supplier mitigate the concerns about the liability cap.\",\n  \"evidence_used\": [\"eval_finance.reasons\", \"eval_it.reasons\", \"eval_operations.reasons\", \"eval_procurement.reasons\"],\n  \"concerns\": []\n}",
+  "approval_file": "approval.json",
+  "approval_sha256": "47e84cd7d2c1252fe1a1514c28a12c7ae60962949fe9e93109d4cffd6081aa44",
+  "owner": "OWNER",
+  "extra_fields": {},
+  "action": {
+    "move": "accept",
+    "price": 450000,
+    "side": "buyer"
+  },
+  "stated_rationale": {
+    "kind": "SAME_CALL_STATED",
+    "rationale": "The supplier's offer is within the approved budget and meets the technical, operational, and security requirements. The expected savings and the company's financial stability of the supplier mitigate the concerns about the liability cap.",
+    "evidence_used": [
+      "eval_finance.reasons",
+      "eval_it.reasons",
+      "eval_operations.reasons",
+      "eval_procurement.reasons"
+    ],
+    "concerns": []
+  },
+  "world_before_call": {
+    "deadline": 10,
+    "moves": 1,
+    "offers": {
+      "seller": 450000
+    },
+    "price": 0,
+    "status": "open",
+    "turn": "buyer"
+  },
+  "world": {
+    "schema": "bvl-world-transition-2",
+    "requested_action": {
+      "move": "accept",
+      "price": 450000,
+      "side": "buyer"
+    },
+    "admissibility_verdict": "ADMISSIBLE",
+    "admissible_action": {
+      "move": "accept",
+      "price": 450000,
+      "side": "buyer"
+    },
+    "executed_action": {
+      "move": "accept",
+      "price": 450000,
+      "side": "buyer"
+    },
+    "pre_state": {
+      "deadline": 10,
+      "moves": 1,
+      "offers": {
+        "seller": 450000
+      },
+      "price": 0,
+      "status": "open",
+      "turn": "buyer"
+    },
+    "post_state": {
+      "deadline": 10,
+      "moves": 2,
+      "offers": {
+        "seller": 450000
+      },
+      "price": 450000,
+      "status": "agreed",
+      "turn": "seller"
+    },
+    "outcome": {
+      "moves": 2,
+      "offers": {
+        "seller": 450000
+      },
+      "price": 450000,
+      "ruling": "accepted",
+      "side": "buyer",
+      "status": "agreed"
+    },
+    "action_input": "ACTION",
+    "executed": true,
+    "exogenous_events": [
+      {
+        "event": "turn_passed",
+        "detail": {
+          "from": "buyer",
+          "moves": 2,
+          "to": "seller"
+        }
+      }
+    ]
+  },
+  "rule_checks": [
+    "AGREED_WITH_LIABILITY_CAP_BELOW_BUYER_RULE: 책임 한도 12개월 < 구매 조직 기준 24개월 (기준은 구매 평가자 브리프에만 있음)"
+  ]
+}

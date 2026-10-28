@@ -1,0 +1,88 @@
+{
+  "schema": "bcp-s2-call-record-1",
+  "evidence_class": "MANUAL HARNESS RECORD — not a BVL sealed package, not FULLMT-verified",
+  "step": "N",
+  "sequence": 1,
+  "actor": "supplier_negotiator",
+  "role_ko": "공급자 협상 담당자 (대응 초안)",
+  "information": [
+    "supplier_negotiator_response_brief",
+    "world"
+  ],
+  "information_origin": {
+    "supplier_negotiator_response_brief": {
+      "kind": "frozen_file",
+      "file": "<S1_KIT>\\inputs\\original\\phase_rf\\supplier_negotiator_response_brief.json",
+      "sha256": "fd6246284cff688f208b7f4d7d55c70073aca0ad5c59c510bed74c12aaa9cf0c",
+      "reply_variant": "seller_response",
+      "changed_field": "reply"
+    }
+  },
+  "model_requested": "qwen2.5:7b-instruct",
+  "model_answered": "qwen2.5:7b-instruct",
+  "adapter_provenance": "bvl.openai-chat-adapter:1;system_fingerprint=fp_ollama",
+  "model_server_record_at_call": {
+    "available": true,
+    "name": "qwen2.5:7b-instruct",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "modified_at": "2026-09-28T20:42:47.2380456+09:00",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "ggml"
+    }
+  },
+  "options": {
+    "temperature": 0,
+    "max_tokens": 512,
+    "response_format": "json_object"
+  },
+  "seed": 6900140034330824044,
+  "started_at": "2026-10-27T10:29:28.107+00:00",
+  "finished_at": "2026-10-27T10:29:41.279+00:00",
+  "duration_seconds": 13.172,
+  "request_file": "request.json",
+  "request_sha256": "8c6fbdd8fa0d5d5052b67fa8b6121a24c3dd3a62658041de7f11459fef275df3",
+  "response_file": "response.bin",
+  "response_sha256": "a086b6ee7e4bf2d13386d7942698c02bfefc6fd2526e8eb90c470db259c4b238",
+  "raw_response": "{\n  \"side\": \"seller\",\n  \"move\": \"offer\",\n  \"price\": 440000,\n  \"rationale\": \"We aim to close the deal while ensuring a reasonable profit margin. The buyer's offer is close to our cost, but we can make a slight concession to move the negotiation forward.\",\n  \"evidence_used\": [\"facts\", \"world.offers.buyer\"],\n  \"concerns\": []\n}",
+  "approval_file": "approval.json",
+  "approval_sha256": "364781747feca20d98ee804d2101f1603ea0d886641f9535dfdbe6c7449c15b1",
+  "owner": "OWNER",
+  "action": {
+    "move": "offer",
+    "price": 440000,
+    "side": "seller"
+  },
+  "stated_rationale": {
+    "kind": "SAME_CALL_STATED",
+    "rationale": "We aim to close the deal while ensuring a reasonable profit margin. The buyer's offer is close to our cost, but we can make a slight concession to move the negotiation forward.",
+    "evidence_used": [
+      "facts",
+      "world.offers.buyer"
+    ],
+    "concerns": []
+  },
+  "extra_fields": {},
+  "world_before_call": {
+    "deadline": 10,
+    "moves": 2,
+    "offers": {
+      "buyer": 420000,
+      "seller": 450000
+    },
+    "price": 0,
+    "status": "open",
+    "turn": "seller"
+  },
+  "world": null,
+  "rule_checks": []
+}

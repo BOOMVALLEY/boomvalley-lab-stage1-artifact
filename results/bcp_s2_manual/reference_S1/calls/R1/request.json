@@ -1,0 +1,49 @@
+{
+  "schema": "bcp-manual-request-1",
+  "call": "R1",
+  "phase": "R",
+  "actor": "purchasing_director",
+  "information_origin": {
+    "director_brief": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_rf/director_brief.json",
+      "sha256": "28a60a82036284beb163986ba1a64fbdc97f2dc25ab53c3ad26ec7048d76169e",
+      "reply_variant": "buyer_move",
+      "changed_field": "reply"
+    },
+    "deal_terms": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_rf/deal_terms.json",
+      "sha256": "949c89ff9bbd60ebbb5c0a194a122707a8b3bea62f4021a04e9add6b736e1e42"
+    },
+    "supplier_offer": {
+      "kind": "call_output",
+      "call": "P2",
+      "what": "World post_state offers.seller (layout of sources/supplier_offer.json)"
+    },
+    "eval_procurement": {
+      "kind": "call_output",
+      "call": "E4",
+      "what": "the four original evaluation fields (evidence_used is not passed on)"
+    }
+  },
+  "request": {
+    "schema": "boomvalley-lab-request-2",
+    "messages": [
+      {
+        "role": "user",
+        "content": "{\"actor\":\"purchasing_director\",\"information\":{\"deal_terms\":\"{\\n  \\\"product\\\": \\\"DocStream AI document-processing platform, 3-year subscription including implementation\\\",\\n  \\\"implementation\\\": \\\"12 weeks of implementation, then 2 weeks of user training\\\",\\n  \\\"security\\\": \\\"SOC 2 Type II report available; SSO (SAML) supported; standard ERP connector included; penetration-test report provided after contract signature\\\",\\n  \\\"contract\\\": \\\"Minimum term 3 years; liability cap equal to 12 months of fees; availability SLA 99.5%\\\"\\n}\\n\",\"director_brief\":\"{\\n  \\\"organization\\\": \\\"Buyer Co.\\\",\\n  \\\"position\\\": \\\"Purchasing Director\\\",\\n  \\\"situation\\\": \\\"Buyer Co. is considering a 3-year subscription to the DocStream AI document-processing platform from Supplier Co. The common deal terms are in deal_terms and Supplier Co.'s current offer is in supplier_offer; world shows the negotiation table. Evaluation reports from your colleagues that are available to you are included in the information below.\\\",\\n  \\\"authority\\\": \\\"You decide Buyer Co.'s official move now. accept: buy at Supplier Co.'s offered price (price must equal world.offers.seller). offer: make a counter-offer at a price you choose. walk_away: end the talks.\\\",\\n  \\\"reply\\\": \\\"Answer with one JSON object and nothing else: {\\\\\\\"side\\\\\\\": \\\\\\\"buyer\\\\\\\", \\\\\\\"move\\\\\\\": \\\\\\\"accept\\\\\\\" or \\\\\\\"offer\\\\\\\" or \\\\\\\"walk_away\\\\\\\", \\\\\\\"price\\\\\\\": <integer USD>, \\\\\\\"rationale\\\\\\\": <string>, \\\\\\\"evidence_used\\\\\\\": [<string>, ...], \\\\\\\"concerns\\\\\\\": [<string>, ...]}. For walk_away use price 0. rationale: the main reasons for your decision, in at most three sentences. evidence_used: the information you relied on, each item naming its source (a key of information, or world) and the point you used. concerns: the concerns that affected your decision (an empty list if none).\\\"\\n}\\n\",\"eval_procurement\":\"{\\n  \\\"approval_conditions\\\": \\\"\\\",\\n  \\\"concerns\\\": \\\"The liability cap is lower than the company rule, which might be a concern. However, given the supplier's financial stability and the comprehensive security measures, this risk is mitigated.\\\",\\n  \\\"favor\\\": true,\\n  \\\"reasons\\\": \\\"The supplier has a sound financial condition and has been operating for 9 years, which reduces the risk of the supplier going out of business. The liability cap of 12 months of fees is lower than the company rule of 24 months, but the supplier's financial stability and the comprehensive security measures provided make the risk acceptable.\\\"\\n}\\n\",\"supplier_offer\":\"{\\n  \\\"list_offer_usd\\\": 450000\\n}\\n\"},\"round\":1,\"world\":{\"deadline\":10,\"moves\":1,\"offers\":{\"seller\":450000},\"price\":0,\"status\":\"open\",\"turn\":\"buyer\"}}"
+      }
+    ],
+    "options": {
+      "temperature": 0,
+      "max_tokens": 512,
+      "response_format": "json_object"
+    },
+    "resolved_seed": 2929207468828607101,
+    "model_identity": "qwen2.5:7b-instruct",
+    "renderer_identity": "bcp-manual:json-message (bvl.json-renderer:1 layout)",
+    "codec_identity": "builtin.chat-messages-codec:1",
+    "corroboration_grade": "CLIENT_CANONICAL"
+  }
+}

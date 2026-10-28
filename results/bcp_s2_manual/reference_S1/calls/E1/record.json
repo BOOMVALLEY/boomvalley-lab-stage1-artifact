@@ -1,0 +1,107 @@
+{
+  "schema": "bcp-manual-call-record-1",
+  "evidence_class": "MANUAL HARNESS RECORD — not a BVL sealed package, not FULLMT-verified",
+  "call": "E1",
+  "sequence": 3,
+  "phase": "E",
+  "actor": "buyer_it",
+  "role_ko": "구매자 IT 평가자",
+  "information": [
+    "buyer_it_brief",
+    "deal_terms",
+    "supplier_offer",
+    "world"
+  ],
+  "information_origin": {
+    "buyer_it_brief": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_e/buyer_it_brief.json",
+      "sha256": "0d9c14df86f1311e46facdb698c2b1e38cd5e951ce1977843375fb9d0abe0b66",
+      "reply_variant": "evaluation",
+      "changed_field": "reply"
+    },
+    "deal_terms": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_e/deal_terms.json",
+      "sha256": "949c89ff9bbd60ebbb5c0a194a122707a8b3bea62f4021a04e9add6b736e1e42"
+    },
+    "supplier_offer": {
+      "kind": "call_output",
+      "call": "P2",
+      "what": "World post_state offers.seller (layout of sources/supplier_offer.json)"
+    }
+  },
+  "model_requested": "qwen2.5:7b-instruct",
+  "model_answered": "qwen2.5:7b-instruct",
+  "adapter_provenance": "bvl.openai-chat-adapter:1;system_fingerprint=fp_ollama",
+  "model_server_record": {
+    "available": true,
+    "name": "qwen2.5:7b-instruct",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "modified_at": "2026-09-28T20:42:47.2380456+09:00",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "ggml"
+    }
+  },
+  "options": {
+    "temperature": 0,
+    "max_tokens": 512,
+    "response_format": "json_object"
+  },
+  "seed": 1447200248205849186,
+  "started_at": "2026-10-27T03:54:54.456+00:00",
+  "finished_at": "2026-10-27T03:55:21.417+00:00",
+  "duration_seconds": 26.96,
+  "request_file": "request.json",
+  "request_sha256": "8a043ffe05ba812f30cbac6b9c124fc9182a3794156f4bceb70a21d9ed3fa235",
+  "response_file": "response.bin",
+  "response_sha256": "ae9f81bcfb3bc3ea994e91ded8e688be1da02047d84453245897ff61ba7d4517",
+  "raw_response": "{\n  \"favor\": true,\n  \"reasons\": \"The DocStream AI document-processing platform meets the technical fit and security requirements. The implementation and training periods are reasonable, and the standard ERP connector and SSO support are beneficial. The provided penetration-test report after contract signature aligns with the company's security standard.\",\n  \"approval_conditions\": \"\",\n  \"concerns\": \"The cost is high, and there are no additional discounts or payment terms offered by Supplier Co.\",\n  \"evidence_used\": [\n    {\"source\": \"buyer_it_brief\", \"point\": \"responsibility\"},\n    {\"source\": \"buyer_it_brief\", \"point\": \"facts\"},\n    {\"source\": \"deal_terms\", \"point\": \"security\"},\n    {\"source\": \"supplier_offer\", \"point\": \"list_offer_usd\"}\n  ]\n}",
+  "approval_file": "approval.json",
+  "approval_sha256": "d87c5365026dbaf8cd2ceac70465e9a1e155b5976a9b99cd798c6249b850fa69",
+  "owner": "OWNER",
+  "extra_fields": {},
+  "evaluation": {
+    "approval_conditions": "",
+    "concerns": "The cost is high, and there are no additional discounts or payment terms offered by Supplier Co.",
+    "favor": true,
+    "reasons": "The DocStream AI document-processing platform meets the technical fit and security requirements. The implementation and training periods are reasonable, and the standard ERP connector and SSO support are beneficial. The provided penetration-test report after contract signature aligns with the company's security standard."
+  },
+  "stated_rationale": {
+    "kind": "SAME_CALL_STATED",
+    "reasons": "The DocStream AI document-processing platform meets the technical fit and security requirements. The implementation and training periods are reasonable, and the standard ERP connector and SSO support are beneficial. The provided penetration-test report after contract signature aligns with the company's security standard.",
+    "concerns": "The cost is high, and there are no additional discounts or payment terms offered by Supplier Co.",
+    "approval_conditions": "",
+    "evidence_used": [
+      {
+        "source": "buyer_it_brief",
+        "point": "responsibility"
+      },
+      {
+        "source": "buyer_it_brief",
+        "point": "facts"
+      },
+      {
+        "source": "deal_terms",
+        "point": "security"
+      },
+      {
+        "source": "supplier_offer",
+        "point": "list_offer_usd"
+      }
+    ]
+  },
+  "action": null,
+  "world": null,
+  "rule_checks": []
+}

@@ -1,0 +1,589 @@
+{
+  "schema": "bcp-s2-anonymization-manifest-1",
+  "placeholders": {
+    "<S2_KIT>": "working folder of the S2 runner and its session (runs/S2)",
+    "<S1_KIT>": "working folder of the S1 manual harness (bcp_manual.py, protocol.json, inputs, runs/S1)",
+    "<BCP_R_RUN>": "run folder of condition R, byte-identical to results/bcp_demo/run_2026-10-23/RUN-R",
+    "<BCP_RUN_DIR>": "folder holding that run folder",
+    "<VENV>": "Python virtual environment in which BOOMVALLEY Lab 1.0.0rc3 was installed"
+  },
+  "files": [
+    {
+      "distributed_path": "results/bcp_s2_manual/S2/calls/M/approval.json",
+      "original_location": "<S2_KIT>/runs/S2/calls/M/approval.json",
+      "original_sha256": "07e1839ae22ff15d87f7d2fcb19da081509305d4ac83c965ef42081fbe5d2592",
+      "distributed_sha256": "07e1839ae22ff15d87f7d2fcb19da081509305d4ac83c965ef42081fbe5d2592",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/S2/calls/M/record.json",
+      "original_location": "<S2_KIT>/runs/S2/calls/M/record.json",
+      "original_sha256": "512c60ef30b56068cd0dc588d138e41be82ee94a5295f4f6f0e28d5721cf024e",
+      "distributed_sha256": "1dbd4485391058e59cdc83073e0195337e19699c20f2ca58ffe8c538bcf2cbc3",
+      "byte_identical": false,
+      "replacements": [
+        {
+          "placeholder": "<S1_KIT>",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/S2/calls/M/request.json",
+      "original_location": "<S2_KIT>/runs/S2/calls/M/request.json",
+      "original_sha256": "f7eb86c3d0839ec53518cfc23af4943c2572df19dc3cdce1907430cde52e6b9a",
+      "distributed_sha256": "be2152a4030544460bbc18b58d928376da50bab43f748883df980b25db71fec9",
+      "byte_identical": false,
+      "replacements": [
+        {
+          "placeholder": "<S1_KIT>",
+          "count": 1
+        },
+        {
+          "placeholder": "<BCP_R_RUN>",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/S2/calls/M/response.bin",
+      "original_location": "<S2_KIT>/runs/S2/calls/M/response.bin",
+      "original_sha256": "79a17519ccdbc8892e2bfb22aa29da89eaf4f2c8e1fe98cd432aad7f00cc5164",
+      "distributed_sha256": "79a17519ccdbc8892e2bfb22aa29da89eaf4f2c8e1fe98cd432aad7f00cc5164",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/S2/calls/N/approval.json",
+      "original_location": "<S2_KIT>/runs/S2/calls/N/approval.json",
+      "original_sha256": "364781747feca20d98ee804d2101f1603ea0d886641f9535dfdbe6c7449c15b1",
+      "distributed_sha256": "364781747feca20d98ee804d2101f1603ea0d886641f9535dfdbe6c7449c15b1",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/S2/calls/N/record.json",
+      "original_location": "<S2_KIT>/runs/S2/calls/N/record.json",
+      "original_sha256": "cd0e45577cab50d367f95f656cf99ea589f99bd159c59f45dfdf05afbb9934d9",
+      "distributed_sha256": "0d754a5ff239ee74e55fa33712824f8d0051d3cf65dabbd2f152cf4ba4abb0c2",
+      "byte_identical": false,
+      "replacements": [
+        {
+          "placeholder": "<S1_KIT>",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/S2/calls/N/request.json",
+      "original_location": "<S2_KIT>/runs/S2/calls/N/request.json",
+      "original_sha256": "8c6fbdd8fa0d5d5052b67fa8b6121a24c3dd3a62658041de7f11459fef275df3",
+      "distributed_sha256": "1ba3a80ffcffe0ff22641c329e4f8fc8c30d20d10134818d6d283ce5b617c3bf",
+      "byte_identical": false,
+      "replacements": [
+        {
+          "placeholder": "<S1_KIT>",
+          "count": 1
+        },
+        {
+          "placeholder": "<BCP_R_RUN>",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/S2/calls/N/response.bin",
+      "original_location": "<S2_KIT>/runs/S2/calls/N/response.bin",
+      "original_sha256": "a086b6ee7e4bf2d13386d7942698c02bfefc6fd2526e8eb90c470db259c4b238",
+      "distributed_sha256": "a086b6ee7e4bf2d13386d7942698c02bfefc6fd2526e8eb90c470db259c4b238",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/S2/state.json",
+      "original_location": "<S2_KIT>/runs/S2/state.json",
+      "original_sha256": "9397e898af0e31b8e317e59873149237deadbbc7c46f9e3afb8f4fc33b8d5cd5",
+      "distributed_sha256": "f744ea7a670c7e9d446ec9eea15b46bb8db8beba7bc83bd0952273ae632bfaac",
+      "byte_identical": false,
+      "replacements": [
+        {
+          "placeholder": "<S2_KIT>",
+          "count": 1
+        },
+        {
+          "placeholder": "<S1_KIT>",
+          "count": 4
+        },
+        {
+          "placeholder": "<BCP_R_RUN>",
+          "count": 3
+        },
+        {
+          "placeholder": "<VENV>",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/original_records_ko/FINAL_BCP_S2_RESULT_KO.md",
+      "original_location": "<S2_KIT>/FINAL_BCP_S2_RESULT_KO.md",
+      "original_sha256": "e7ad926f39f32b7dc36ff28c34c871da439328f0d8e6e4f54e83035b1f5f27cd",
+      "distributed_sha256": "1cf5824a2b4af93ed60f2dec5fd5d3012cdf08e7c93a9808505d2e5642ba7bcb",
+      "byte_identical": false,
+      "replacements": [
+        {
+          "placeholder": "<S2_KIT>",
+          "count": 2
+        },
+        {
+          "placeholder": "<S1_KIT>",
+          "count": 1
+        },
+        {
+          "placeholder": "<BCP_R_RUN>",
+          "count": 1
+        },
+        {
+          "placeholder": "<BCP_RUN_DIR>\\",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/original_records_ko/BCP_FINAL_COMPARISON_KO.md",
+      "original_location": "<S2_KIT>/BCP_FINAL_COMPARISON_KO.md",
+      "original_sha256": "ab3196ad402dba1cbf10d250ce310f7124029559e488ab16ce64ac145417fc39",
+      "distributed_sha256": "4a0d4c96e118cf2506014c67289312d21efdc55ba9c6bda260b75f2228fd9e31",
+      "byte_identical": false,
+      "replacements": [
+        {
+          "placeholder": "<S2_KIT>",
+          "count": 1
+        },
+        {
+          "placeholder": "<S1_KIT>",
+          "count": 1
+        },
+        {
+          "placeholder": "<BCP_R_RUN>",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E1/approval.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/E1/approval.json",
+      "original_sha256": "d87c5365026dbaf8cd2ceac70465e9a1e155b5976a9b99cd798c6249b850fa69",
+      "distributed_sha256": "d87c5365026dbaf8cd2ceac70465e9a1e155b5976a9b99cd798c6249b850fa69",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E1/record.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/E1/record.json",
+      "original_sha256": "c7131d30457adebc40012538117a2febbb820015f3f4efde32e513686b79d9e9",
+      "distributed_sha256": "c7131d30457adebc40012538117a2febbb820015f3f4efde32e513686b79d9e9",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E1/request.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/E1/request.json",
+      "original_sha256": "8a043ffe05ba812f30cbac6b9c124fc9182a3794156f4bceb70a21d9ed3fa235",
+      "distributed_sha256": "8a043ffe05ba812f30cbac6b9c124fc9182a3794156f4bceb70a21d9ed3fa235",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E1/response.bin",
+      "original_location": "<S1_KIT>/runs/S1/calls/E1/response.bin",
+      "original_sha256": "ae9f81bcfb3bc3ea994e91ded8e688be1da02047d84453245897ff61ba7d4517",
+      "distributed_sha256": "ae9f81bcfb3bc3ea994e91ded8e688be1da02047d84453245897ff61ba7d4517",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E2/approval.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/E2/approval.json",
+      "original_sha256": "ea88ae1eeaab77c7da22e2a898317098a7c4434bec1791aa72509174722f52ad",
+      "distributed_sha256": "ea88ae1eeaab77c7da22e2a898317098a7c4434bec1791aa72509174722f52ad",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E2/record.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/E2/record.json",
+      "original_sha256": "d0d5b3660742416d0122534c16d6cbf25b5d8d9e24e2e4f721e1aa2f571fdde8",
+      "distributed_sha256": "d0d5b3660742416d0122534c16d6cbf25b5d8d9e24e2e4f721e1aa2f571fdde8",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E2/request.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/E2/request.json",
+      "original_sha256": "3c95a6a6d1bfd4773feb1e74ba365ac8053ccff54ac3674449133dcdb829d189",
+      "distributed_sha256": "3c95a6a6d1bfd4773feb1e74ba365ac8053ccff54ac3674449133dcdb829d189",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E2/response.bin",
+      "original_location": "<S1_KIT>/runs/S1/calls/E2/response.bin",
+      "original_sha256": "546c321e9e580b2333ad3c63fd721eefb39eed3aa0b9321c716b93652229ef73",
+      "distributed_sha256": "546c321e9e580b2333ad3c63fd721eefb39eed3aa0b9321c716b93652229ef73",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E3/approval.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/E3/approval.json",
+      "original_sha256": "fc9db3e28b2d6aed1db2a786a3f605936374d28229ae894055c608938e1af2b7",
+      "distributed_sha256": "fc9db3e28b2d6aed1db2a786a3f605936374d28229ae894055c608938e1af2b7",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E3/record.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/E3/record.json",
+      "original_sha256": "2525967c4f016b0db281e658e1186555863e27a59b31200d3a015e3fbb5d2c5e",
+      "distributed_sha256": "2525967c4f016b0db281e658e1186555863e27a59b31200d3a015e3fbb5d2c5e",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E3/request.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/E3/request.json",
+      "original_sha256": "fabdee2f79ac4702f2bca7913d2fc3153ab9c31cf21c48b21dbda34f4e372f30",
+      "distributed_sha256": "fabdee2f79ac4702f2bca7913d2fc3153ab9c31cf21c48b21dbda34f4e372f30",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E3/response.bin",
+      "original_location": "<S1_KIT>/runs/S1/calls/E3/response.bin",
+      "original_sha256": "d13b7ea75501cc076705cbe0164d548b54947bfccd225ce47f08992336c02c43",
+      "distributed_sha256": "d13b7ea75501cc076705cbe0164d548b54947bfccd225ce47f08992336c02c43",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E4/approval.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/E4/approval.json",
+      "original_sha256": "61e99339a204396415c1446645791fb22f64f6a2276cd5c787080b110e23cf74",
+      "distributed_sha256": "61e99339a204396415c1446645791fb22f64f6a2276cd5c787080b110e23cf74",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E4/record.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/E4/record.json",
+      "original_sha256": "bf8cdf05a5e568c5de485a7ab20de0ae61a54809fc573465c47489e2ab2eee8a",
+      "distributed_sha256": "bf8cdf05a5e568c5de485a7ab20de0ae61a54809fc573465c47489e2ab2eee8a",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E4/request.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/E4/request.json",
+      "original_sha256": "08df14bfbcb22af863c3d14f178435b7086266ef5d5391f92004f7d855c9e0a1",
+      "distributed_sha256": "08df14bfbcb22af863c3d14f178435b7086266ef5d5391f92004f7d855c9e0a1",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/E4/response.bin",
+      "original_location": "<S1_KIT>/runs/S1/calls/E4/response.bin",
+      "original_sha256": "b36414a3d8c8d90390a26c23c63a2a5dbc1564c859b05e63f0e5a8d36a3b45b2",
+      "distributed_sha256": "b36414a3d8c8d90390a26c23c63a2a5dbc1564c859b05e63f0e5a8d36a3b45b2",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/F1/approval.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/F1/approval.json",
+      "original_sha256": "47e84cd7d2c1252fe1a1514c28a12c7ae60962949fe9e93109d4cffd6081aa44",
+      "distributed_sha256": "47e84cd7d2c1252fe1a1514c28a12c7ae60962949fe9e93109d4cffd6081aa44",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/F1/record.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/F1/record.json",
+      "original_sha256": "2382f86e22f0427b75faef2490497498ce413182c726808663bb3f453549cc8b",
+      "distributed_sha256": "2382f86e22f0427b75faef2490497498ce413182c726808663bb3f453549cc8b",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/F1/request.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/F1/request.json",
+      "original_sha256": "c036f5606740b8dfdf2d4bf9bc78a9675f2e59945726f1d1ba3104fc2a2abe59",
+      "distributed_sha256": "c036f5606740b8dfdf2d4bf9bc78a9675f2e59945726f1d1ba3104fc2a2abe59",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/F1/response.bin",
+      "original_location": "<S1_KIT>/runs/S1/calls/F1/response.bin",
+      "original_sha256": "0eb6c2a5e00cc8b095455ce374d6ef0c319300efe1311c5bdb6789986490cd63",
+      "distributed_sha256": "0eb6c2a5e00cc8b095455ce374d6ef0c319300efe1311c5bdb6789986490cd63",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/F2/approval.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/F2/approval.json",
+      "original_sha256": "6cbadb898e3237df1da8de50c09c9bfe036076cfe61843d8285a7c895ebf7eef",
+      "distributed_sha256": "6cbadb898e3237df1da8de50c09c9bfe036076cfe61843d8285a7c895ebf7eef",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/F2/record.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/F2/record.json",
+      "original_sha256": "401e03849a6bb58e88f67ac1fcec045333eaedabfabf7a3ef0c26a641c656447",
+      "distributed_sha256": "401e03849a6bb58e88f67ac1fcec045333eaedabfabf7a3ef0c26a641c656447",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/F2/request.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/F2/request.json",
+      "original_sha256": "4b1cc1ddc2121ed5d5591c6fc4163ce80b81e233979f1b0565f894b2c6aade96",
+      "distributed_sha256": "4b1cc1ddc2121ed5d5591c6fc4163ce80b81e233979f1b0565f894b2c6aade96",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/F2/response.bin",
+      "original_location": "<S1_KIT>/runs/S1/calls/F2/response.bin",
+      "original_sha256": "ad62e31ad879aadddf331dda7121ae489baa2e0aad69237aa4f9f3e3f627be78",
+      "distributed_sha256": "ad62e31ad879aadddf331dda7121ae489baa2e0aad69237aa4f9f3e3f627be78",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/F3/approval.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/F3/approval.json",
+      "original_sha256": "131429d1c996bfbed09614bd5dc84764e8753f6ef2bf77945de09eceb9d2ba6b",
+      "distributed_sha256": "131429d1c996bfbed09614bd5dc84764e8753f6ef2bf77945de09eceb9d2ba6b",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/F3/record.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/F3/record.json",
+      "original_sha256": "eb8c0bd7017eba01fd42b9358f53b8e519dd12c40fc41255022e9f1f5c786571",
+      "distributed_sha256": "eb8c0bd7017eba01fd42b9358f53b8e519dd12c40fc41255022e9f1f5c786571",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/F3/request.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/F3/request.json",
+      "original_sha256": "894b9a905d984f6b1b9fb09998a99816ae3e259bc34b89c67a2309245519b7a0",
+      "distributed_sha256": "894b9a905d984f6b1b9fb09998a99816ae3e259bc34b89c67a2309245519b7a0",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/F3/response.bin",
+      "original_location": "<S1_KIT>/runs/S1/calls/F3/response.bin",
+      "original_sha256": "db1fba07f08ff288a40a4223d78a56833d71c7f32fb6216c56b9af9ed037b727",
+      "distributed_sha256": "db1fba07f08ff288a40a4223d78a56833d71c7f32fb6216c56b9af9ed037b727",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/P1/approval.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/P1/approval.json",
+      "original_sha256": "7ee031dfdcb6135405eea95f386e4da9f9210055d74b3c71e3df803b1beecd40",
+      "distributed_sha256": "7ee031dfdcb6135405eea95f386e4da9f9210055d74b3c71e3df803b1beecd40",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/P1/record.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/P1/record.json",
+      "original_sha256": "e573d5f41ba963d80def2634ca48d91188e00a4bf2729cfd25fbc0f00ef3dc1e",
+      "distributed_sha256": "e573d5f41ba963d80def2634ca48d91188e00a4bf2729cfd25fbc0f00ef3dc1e",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/P1/request.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/P1/request.json",
+      "original_sha256": "d5448dd48c9671892767bbb84f50f36b24beb3dc2c11fa91ea368487764001de",
+      "distributed_sha256": "d5448dd48c9671892767bbb84f50f36b24beb3dc2c11fa91ea368487764001de",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/P1/response.bin",
+      "original_location": "<S1_KIT>/runs/S1/calls/P1/response.bin",
+      "original_sha256": "f20d14024d1aa8b25cb933dfab270554bbeecc562011f2e99a887b1834dd1b65",
+      "distributed_sha256": "f20d14024d1aa8b25cb933dfab270554bbeecc562011f2e99a887b1834dd1b65",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/P2/approval.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/P2/approval.json",
+      "original_sha256": "fef1153f21619d1b6b91c7de4cb45497a0d0b8a6ba2f551488715a104e22ca96",
+      "distributed_sha256": "fef1153f21619d1b6b91c7de4cb45497a0d0b8a6ba2f551488715a104e22ca96",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/P2/record.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/P2/record.json",
+      "original_sha256": "ed1ce279b7a4e9daf03db1591dc0d88b96f928c9cb5d018fa4738375f2adfc86",
+      "distributed_sha256": "ed1ce279b7a4e9daf03db1591dc0d88b96f928c9cb5d018fa4738375f2adfc86",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/P2/request.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/P2/request.json",
+      "original_sha256": "c76ce2734fdc34f996d47bc616a5277fe2e0a73b77fb4ec8077f71a713388a4e",
+      "distributed_sha256": "c76ce2734fdc34f996d47bc616a5277fe2e0a73b77fb4ec8077f71a713388a4e",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/P2/response.bin",
+      "original_location": "<S1_KIT>/runs/S1/calls/P2/response.bin",
+      "original_sha256": "98f3e4719ba795ad78bd68af0fb3e3d684fbb9242fa875393be8e6f08b19aa6f",
+      "distributed_sha256": "98f3e4719ba795ad78bd68af0fb3e3d684fbb9242fa875393be8e6f08b19aa6f",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/R1/approval.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/R1/approval.json",
+      "original_sha256": "9123bb114de797be20bb45c441fac04c6a07b7ff895643e1589c8f49910f9646",
+      "distributed_sha256": "9123bb114de797be20bb45c441fac04c6a07b7ff895643e1589c8f49910f9646",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/R1/record.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/R1/record.json",
+      "original_sha256": "ff075454f74148db4d62604a7a62607770441b5dd1cf1fe56645baad62d18a53",
+      "distributed_sha256": "ff075454f74148db4d62604a7a62607770441b5dd1cf1fe56645baad62d18a53",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/R1/request.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/R1/request.json",
+      "original_sha256": "359375f98e44d791c23cef19cf5540e0dee245166d74f9565ae437a4267bba66",
+      "distributed_sha256": "359375f98e44d791c23cef19cf5540e0dee245166d74f9565ae437a4267bba66",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/R1/response.bin",
+      "original_location": "<S1_KIT>/runs/S1/calls/R1/response.bin",
+      "original_sha256": "9e025afb20da4a36c228d0605ae8bd7e90dc35390e7dc24d50de124916a2d923",
+      "distributed_sha256": "9e025afb20da4a36c228d0605ae8bd7e90dc35390e7dc24d50de124916a2d923",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/R2/approval.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/R2/approval.json",
+      "original_sha256": "5d5ae9af3d883be20d653e4a1fe154933c90ba40d01a98916a7b0e2432940c7f",
+      "distributed_sha256": "5d5ae9af3d883be20d653e4a1fe154933c90ba40d01a98916a7b0e2432940c7f",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/R2/record.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/R2/record.json",
+      "original_sha256": "2474c8c11854f1cc57c7fdae1689f165de1b6b60d2de862744a0f38acc05f8a8",
+      "distributed_sha256": "2474c8c11854f1cc57c7fdae1689f165de1b6b60d2de862744a0f38acc05f8a8",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/R2/request.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/R2/request.json",
+      "original_sha256": "706d86b4d34ba88314e8908ad25c3a01ebdc650689bfbca6691188a0b8938029",
+      "distributed_sha256": "706d86b4d34ba88314e8908ad25c3a01ebdc650689bfbca6691188a0b8938029",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/R2/response.bin",
+      "original_location": "<S1_KIT>/runs/S1/calls/R2/response.bin",
+      "original_sha256": "ad62e31ad879aadddf331dda7121ae489baa2e0aad69237aa4f9f3e3f627be78",
+      "distributed_sha256": "ad62e31ad879aadddf331dda7121ae489baa2e0aad69237aa4f9f3e3f627be78",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/R3/approval.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/R3/approval.json",
+      "original_sha256": "ebb666cffac25919629fcdb2b0f7aec37b54ec33cc04e481783c993a1df9b5fa",
+      "distributed_sha256": "ebb666cffac25919629fcdb2b0f7aec37b54ec33cc04e481783c993a1df9b5fa",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/R3/record.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/R3/record.json",
+      "original_sha256": "568e707a9c54adc9ea0c02da0d7205cb3c5a7756ef3775d3cd7c52e4d84a7bf1",
+      "distributed_sha256": "568e707a9c54adc9ea0c02da0d7205cb3c5a7756ef3775d3cd7c52e4d84a7bf1",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/R3/request.json",
+      "original_location": "<S1_KIT>/runs/S1/calls/R3/request.json",
+      "original_sha256": "0d4f8e2fc4068bcad4b8c16bc4a448e5ecd42aa5994d63957a810612f9f0f460",
+      "distributed_sha256": "0d4f8e2fc4068bcad4b8c16bc4a448e5ecd42aa5994d63957a810612f9f0f460",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/calls/R3/response.bin",
+      "original_location": "<S1_KIT>/runs/S1/calls/R3/response.bin",
+      "original_sha256": "801e799bca4263d98541bbcb01d9b130306ce71f8acf910d2e0046b0d9f37468",
+      "distributed_sha256": "801e799bca4263d98541bbcb01d9b130306ce71f8acf910d2e0046b0d9f37468",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/RESULT_S1.md",
+      "original_location": "<S1_KIT>/runs/S1/RESULT_S1.md",
+      "original_sha256": "650603470973cf20b9b29e8487356826d851df86db31af0eef1298d576ce051a",
+      "distributed_sha256": "650603470973cf20b9b29e8487356826d851df86db31af0eef1298d576ce051a",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/RESULTS_FACTS.md",
+      "original_location": "<S1_KIT>/runs/S1/RESULTS_FACTS.md",
+      "original_sha256": "f46ef84d6ab07e60f5ec5b6a23bbab1c8c85c0d4613f3b5701c312440cfedbf7",
+      "distributed_sha256": "f46ef84d6ab07e60f5ec5b6a23bbab1c8c85c0d4613f3b5701c312440cfedbf7",
+      "byte_identical": true,
+      "replacements": []
+    },
+    {
+      "distributed_path": "results/bcp_s2_manual/reference_S1/state.json",
+      "original_location": "<S1_KIT>/runs/S1/state.json",
+      "original_sha256": "438c81b41630c539cb257a616711de94d7abf23100c1f657931034d00021b750",
+      "distributed_sha256": "fa53cc9f505e09e7871d70f12594cd6150c9c0db9dedb83f2bd139d1d1ead493",
+      "byte_identical": false,
+      "replacements": [
+        {
+          "placeholder": "<VENV>",
+          "count": 5
+        }
+      ]
+    }
+  ],
+  "note": "Each replacement substitutes one local absolute folder path by the placeholder named; the local paths themselves are withheld. Only path strings were replaced; no other byte was changed."
+}

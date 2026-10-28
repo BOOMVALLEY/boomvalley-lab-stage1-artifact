@@ -1,0 +1,52 @@
+{
+  "schema": "bcp-s2-request-1",
+  "step": "M",
+  "actor": "supplier_manager",
+  "world_origin": {
+    "file": "<BCP_R_RUN>\\evidence-v2\\world_state\\74ec4cc1dc0270380db5201f4f12ccd5f38ba82ae6b0113ffa478b7294cffe3a.json",
+    "sha256": "74ec4cc1dc0270380db5201f4f12ccd5f38ba82ae6b0113ffa478b7294cffe3a"
+  },
+  "information_origin": {
+    "supplier_manager_response_brief": {
+      "kind": "frozen_file",
+      "file": "<S1_KIT>\\inputs\\original\\phase_rf\\supplier_manager_response_brief.json",
+      "sha256": "0ca754d674ccb08ac775dc65244ee24f49fb8de494f7938c4e7bcd81a8b2c509",
+      "reply_variant": "seller_response",
+      "changed_field": "reply"
+    },
+    "supplier_draft": {
+      "kind": "call_output",
+      "call": "N",
+      "what": "N 의 side/move/price 만 canonical JSON 으로 (원본 BVL actor_output 렌더링과 같은 형식). N 의 판단 근거는 전달하지 않는다"
+    }
+  },
+  "original_request": {
+    "file": "<BCP_R_RUN>\\requests-v2\\request-c6e13f68083f532d8ba371da91875a0ee314e9623e934621221b4824a50d7b3f.json",
+    "options": {
+      "max_tokens": 96,
+      "response_format": "json_object",
+      "temperature": 0
+    },
+    "resolved_seed": 6841311227714416853,
+    "renderer_identity": "bvl.json-renderer:1"
+  },
+  "request": {
+    "schema": "boomvalley-lab-request-2",
+    "messages": [
+      {
+        "role": "user",
+        "content": "{\"actor\":\"supplier_manager\",\"information\":{\"supplier_draft\":\"{\\\"move\\\":\\\"offer\\\",\\\"price\\\":440000,\\\"side\\\":\\\"seller\\\"}\",\"supplier_manager_response_brief\":\"{\\n  \\\"organization\\\": \\\"Supplier Co., vendor of the DocStream AI document-processing platform\\\",\\n  \\\"position\\\": \\\"Commercial Manager\\\",\\n  \\\"situation\\\": \\\"You made Supplier Co.'s offer earlier; it is world.offers.seller. world shows the negotiation table now, including Buyer Co.'s latest move (world.offers.buyer is Buyer Co.'s bid, if any; world.status shows whether the talks are still open). Your negotiator's draft is the information source supplier_draft.\\\",\\n  \\\"facts\\\": \\\"List price: 520,000 USD for 3 years. Lowest price the company accepts: 430,000 USD. The quarter's sales target makes this deal important.\\\",\\n  \\\"authority\\\": \\\"You decide Supplier Co.'s official response. You may adopt the draft or decide differently.\\\",\\n  \\\"reply\\\": \\\"Answer with one JSON object and nothing else: {\\\\\\\"side\\\\\\\": \\\\\\\"seller\\\\\\\", \\\\\\\"move\\\\\\\": \\\\\\\"accept\\\\\\\" or \\\\\\\"offer\\\\\\\" or \\\\\\\"walk_away\\\\\\\", \\\\\\\"price\\\\\\\": <integer USD>, \\\\\\\"rationale\\\\\\\": <string>, \\\\\\\"evidence_used\\\\\\\": [<string>, ...], \\\\\\\"concerns\\\\\\\": [<string>, ...]}. For accept, price is exactly world.offers.buyer. For walk_away use price 0. rationale: the main reasons for your decision, in at most three sentences. evidence_used: the information you relied on, each item naming its source (a key of information, or world) and the point you used. concerns: the concerns that affected your decision (an empty list if none).\\\"\\n}\\n\"},\"round\":1,\"world\":{\"deadline\":10,\"moves\":2,\"offers\":{\"buyer\":420000,\"seller\":450000},\"price\":0,\"status\":\"open\",\"turn\":\"seller\"}}"
+      }
+    ],
+    "options": {
+      "temperature": 0,
+      "max_tokens": 512,
+      "response_format": "json_object"
+    },
+    "resolved_seed": 6841311227714416853,
+    "model_identity": "qwen2.5:7b-instruct",
+    "renderer_identity": "bcp-manual:json-message (bvl.json-renderer:1 layout)",
+    "codec_identity": "builtin.chat-messages-codec:1",
+    "corroboration_grade": "CLIENT_CANONICAL"
+  }
+}

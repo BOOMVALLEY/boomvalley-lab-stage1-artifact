@@ -1,0 +1,44 @@
+{
+  "schema": "bcp-manual-request-1",
+  "call": "E4",
+  "phase": "E",
+  "actor": "buyer_procurement",
+  "information_origin": {
+    "buyer_procurement_brief": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_e/buyer_procurement_brief.json",
+      "sha256": "0a092966240d21cb4c06d104bfdf6fbb288a85fe72bfcb24c42c52833b485295",
+      "reply_variant": "evaluation",
+      "changed_field": "reply"
+    },
+    "deal_terms": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_e/deal_terms.json",
+      "sha256": "949c89ff9bbd60ebbb5c0a194a122707a8b3bea62f4021a04e9add6b736e1e42"
+    },
+    "supplier_offer": {
+      "kind": "call_output",
+      "call": "P2",
+      "what": "World post_state offers.seller (layout of sources/supplier_offer.json)"
+    }
+  },
+  "request": {
+    "schema": "boomvalley-lab-request-2",
+    "messages": [
+      {
+        "role": "user",
+        "content": "{\"actor\":\"buyer_procurement\",\"information\":{\"buyer_procurement_brief\":\"{\\n  \\\"organization\\\": \\\"Buyer Co.\\\",\\n  \\\"position\\\": \\\"Procurement Evaluator\\\",\\n  \\\"responsibility\\\": \\\"purchasing process, contract and supplier risk\\\",\\n  \\\"situation\\\": \\\"Buyer Co. is considering a 3-year subscription to the DocStream AI document-processing platform from Supplier Co. The common deal terms are in deal_terms and Supplier Co.'s current offer is in supplier_offer.\\\",\\n  \\\"facts\\\": \\\"Company rule: for a critical supplier the liability cap must be at least 24 months of fees. Supplier Co. has operated for 9 years and its financial condition is sound.\\\",\\n  \\\"task\\\": \\\"Give your own assessment of this purchase from your function's point of view. You do not decide the purchase; the Purchasing Director does.\\\",\\n  \\\"reply\\\": \\\"Write in English. Answer with one JSON object and nothing else, with exactly these fields: \\\\\\\"favor\\\\\\\": true if you are in favor of buying on the current offer, false otherwise; \\\\\\\"reasons\\\\\\\": string; \\\\\\\"approval_conditions\\\\\\\": string, what would need to be true for you to support the purchase (empty if none); \\\\\\\"concerns\\\\\\\": string, unresolved concerns (empty if none); \\\\\\\"evidence_used\\\\\\\": list of strings, the information you relied on, each item naming its source (a key of information) and the point you used.\\\"\\n}\\n\",\"deal_terms\":\"{\\n  \\\"product\\\": \\\"DocStream AI document-processing platform, 3-year subscription including implementation\\\",\\n  \\\"implementation\\\": \\\"12 weeks of implementation, then 2 weeks of user training\\\",\\n  \\\"security\\\": \\\"SOC 2 Type II report available; SSO (SAML) supported; standard ERP connector included; penetration-test report provided after contract signature\\\",\\n  \\\"contract\\\": \\\"Minimum term 3 years; liability cap equal to 12 months of fees; availability SLA 99.5%\\\"\\n}\\n\",\"supplier_offer\":\"{\\n  \\\"list_offer_usd\\\": 450000\\n}\\n\"},\"round\":1,\"world\":{}}"
+      }
+    ],
+    "options": {
+      "temperature": 0,
+      "max_tokens": 512,
+      "response_format": "json_object"
+    },
+    "resolved_seed": 1816503066922657832,
+    "model_identity": "qwen2.5:7b-instruct",
+    "renderer_identity": "bcp-manual:json-message (bvl.json-renderer:1 layout)",
+    "codec_identity": "builtin.chat-messages-codec:1",
+    "corroboration_grade": "CLIENT_CANONICAL"
+  }
+}

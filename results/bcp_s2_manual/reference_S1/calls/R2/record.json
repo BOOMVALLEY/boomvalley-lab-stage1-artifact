@@ -1,0 +1,88 @@
+{
+  "schema": "bcp-manual-call-record-1",
+  "evidence_class": "MANUAL HARNESS RECORD — not a BVL sealed package, not FULLMT-verified",
+  "call": "R2",
+  "sequence": 8,
+  "phase": "R",
+  "actor": "supplier_negotiator",
+  "role_ko": "공급자 협상 담당자 (대응 초안)",
+  "information": [
+    "supplier_negotiator_response_brief",
+    "world"
+  ],
+  "information_origin": {
+    "supplier_negotiator_response_brief": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_rf/supplier_negotiator_response_brief.json",
+      "sha256": "fd6246284cff688f208b7f4d7d55c70073aca0ad5c59c510bed74c12aaa9cf0c",
+      "reply_variant": "seller_response",
+      "changed_field": "reply"
+    }
+  },
+  "model_requested": "qwen2.5:7b-instruct",
+  "model_answered": "qwen2.5:7b-instruct",
+  "adapter_provenance": "bvl.openai-chat-adapter:1;system_fingerprint=fp_ollama",
+  "model_server_record": {
+    "available": true,
+    "name": "qwen2.5:7b-instruct",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "modified_at": "2026-09-28T20:42:47.2380456+09:00",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "ggml"
+    }
+  },
+  "options": {
+    "temperature": 0,
+    "max_tokens": 512,
+    "response_format": "json_object"
+  },
+  "seed": 8959027035642069071,
+  "started_at": "2026-10-27T04:04:20.219+00:00",
+  "finished_at": "2026-10-27T04:04:28.664+00:00",
+  "duration_seconds": 8.445,
+  "request_file": "request.json",
+  "request_sha256": "706d86b4d34ba88314e8908ad25c3a01ebdc650689bfbca6691188a0b8938029",
+  "response_file": "response.bin",
+  "response_sha256": "ad62e31ad879aadddf331dda7121ae489baa2e0aad69237aa4f9f3e3f627be78",
+  "raw_response": "{\n  \"side\": \"seller\",\n  \"move\": \"accept\",\n  \"price\": 450000,\n  \"rationale\": \"The price aligns with our current market strategy and the urgency of meeting this quarter's sales target.\",\n  \"evidence_used\": [\"world.offers.buyer\", \"facts\"],\n  \"concerns\": []\n}",
+  "approval_file": "approval.json",
+  "approval_sha256": "5d5ae9af3d883be20d653e4a1fe154933c90ba40d01a98916a7b0e2432940c7f",
+  "owner": "OWNER",
+  "extra_fields": {},
+  "action": {
+    "move": "accept",
+    "price": 450000,
+    "side": "seller"
+  },
+  "stated_rationale": {
+    "kind": "SAME_CALL_STATED",
+    "rationale": "The price aligns with our current market strategy and the urgency of meeting this quarter's sales target.",
+    "evidence_used": [
+      "world.offers.buyer",
+      "facts"
+    ],
+    "concerns": []
+  },
+  "world_before_call": {
+    "deadline": 10,
+    "moves": 2,
+    "offers": {
+      "seller": 450000
+    },
+    "price": 450000,
+    "status": "agreed",
+    "turn": "seller"
+  },
+  "world": null,
+  "rule_checks": []
+}

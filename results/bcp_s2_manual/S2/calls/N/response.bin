@@ -1,0 +1,8 @@
+{
+  "side": "seller",
+  "move": "offer",
+  "price": 440000,
+  "rationale": "We aim to close the deal while ensuring a reasonable profit margin. The buyer's offer is close to our cost, but we can make a slight concession to move the negotiation forward.",
+  "evidence_used": ["facts", "world.offers.buyer"],
+  "concerns": []
+}

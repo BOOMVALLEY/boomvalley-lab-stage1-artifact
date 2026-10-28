@@ -1,0 +1,11 @@
+# The sample inputs determine the plan hash byte for byte: never convert them.
+examples/bcp_demo/** -text
+# Example B rebuilds the sealed requests from these files byte for byte: never convert them.
+examples/bcp_s2_manual/** -text
+# The sealed run record is verified byte for byte: never convert it.
+results/** -text
+examples/bvl_input_v2/** text eol=lf
+examples/human/** text eol=lf
+# GNDCRW reports a digest of its own source; keep LF on every platform.
+gndcrw/** text eol=lf
+*.pdf binary

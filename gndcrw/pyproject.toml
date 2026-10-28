@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gndcrw"
+version = "0.2.0"
+description = "GNDCRW - pre-execution integrity gate for computational experiments"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+
+# Runtime dependencies stay empty: parsing, normalization, verification and
+# rendering must work on a machine with no third-party library at all.
+dependencies = []
+
+[project.scripts]
+gndcrw = "gndcrw.cli:run"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "ruff>=0.5",
+    # Only the qualification suite uses it, to validate result JSON against
+    # the schema derived from RESULT_CONTRACT.md (Q5-08).
+    "jsonschema>=4",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+gndcrw = ["schema/*.json"]
+
+[tool.pytest.ini_options]
+minversion = "7.4"
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "."]
+exclude = [".venv"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+]
+
+[tool.ruff.lint.per-file-ignores]
+# The corpus is a table of one-line case edits; `d = base(); d[...] = ...` reads best.
+"qualification/build_corpus.py" = ["E501", "E702"]

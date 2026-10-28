@@ -1,0 +1,23 @@
+BOOMVALLEY Lab - Clean Anonymous Edition
+(BOOMVALLEY Lab, GNDCRW and FULLMT)
+Copyright 2026 The BOOMVALLEY Lab authors
+
+The authors' names are withheld for anonymous review. They will be stated in
+this notice in the public release that follows the review.
+
+This edition is licensed as follows.
+
+  Software                                   Apache License, Version 2.0      LICENSE
+    BOOMVALLEY Lab (boomvalley-lab/), GNDCRW (gndcrw/), FULLMT (fullmt/),
+    and the sample run code (the .json, .py and .txt files of examples/)
+
+  Documentation                              CC BY 4.0                        LICENSE-DOCS
+    the researcher manual (docs/) and its PDF edition, README.md,
+    OVERVIEW_FOR_REVIEWERS.md, INSTALL.md, REPRODUCIBILITY.md, the component READMEs, the sample guides and other
+    explanatory documents (Creative Commons Attribution 4.0 International)
+
+The package metadata of BOOMVALLEY Lab and GNDCRW states the Apache License 2.0
+("Apache-2.0"); FULLMT has no package metadata.
+
+Third-party material distributed with this edition is listed in
+THIRD_PARTY_NOTICES.txt.

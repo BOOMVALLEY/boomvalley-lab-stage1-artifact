@@ -1,0 +1,115 @@
+{
+  "schema": "bcp-manual-call-record-1",
+  "evidence_class": "MANUAL HARNESS RECORD — not a BVL sealed package, not FULLMT-verified",
+  "call": "E3",
+  "sequence": 5,
+  "phase": "E",
+  "actor": "buyer_operations",
+  "role_ko": "구매자 운영 평가자",
+  "information": [
+    "buyer_operations_brief",
+    "deal_terms",
+    "supplier_offer",
+    "world"
+  ],
+  "information_origin": {
+    "buyer_operations_brief": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_e/buyer_operations_brief.json",
+      "sha256": "394cc882ff095e22d16166d628a2419592caf6c090881a4ff9e8fcc707d0050a",
+      "reply_variant": "evaluation",
+      "changed_field": "reply"
+    },
+    "deal_terms": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_e/deal_terms.json",
+      "sha256": "949c89ff9bbd60ebbb5c0a194a122707a8b3bea62f4021a04e9add6b736e1e42"
+    },
+    "supplier_offer": {
+      "kind": "call_output",
+      "call": "P2",
+      "what": "World post_state offers.seller (layout of sources/supplier_offer.json)"
+    }
+  },
+  "model_requested": "qwen2.5:7b-instruct",
+  "model_answered": "qwen2.5:7b-instruct",
+  "adapter_provenance": "bvl.openai-chat-adapter:1;system_fingerprint=fp_ollama",
+  "model_server_record": {
+    "available": true,
+    "name": "qwen2.5:7b-instruct",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "modified_at": "2026-09-28T20:42:47.2380456+09:00",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "ggml"
+    }
+  },
+  "options": {
+    "temperature": 0,
+    "max_tokens": 512,
+    "response_format": "json_object"
+  },
+  "seed": 7724667533048282670,
+  "started_at": "2026-10-27T04:00:46.908+00:00",
+  "finished_at": "2026-10-27T04:01:11.419+00:00",
+  "duration_seconds": 24.511,
+  "request_file": "request.json",
+  "request_sha256": "fabdee2f79ac4702f2bca7913d2fc3153ab9c31cf21c48b21dbda34f4e372f30",
+  "response_file": "response.bin",
+  "response_sha256": "d13b7ea75501cc076705cbe0164d548b54947bfccd225ce47f08992336c02c43",
+  "raw_response": "{\n  \"favor\": true,\n  \"reasons\": \"The DocStream AI document-processing platform meets the operational fit and usability requirements. The implementation timeline aligns with the need to go live within 16 weeks for the peak season, and the training period is feasible with two staff members. The security measures and contract terms are satisfactory.\",\n  \"approval_conditions\": \"\",\n  \"concerns\": \"The cost of $450,000 USD for a 3-year subscription is high, but it is within the budget constraints. There are no additional concerns.\",\n  \"evidence_used\": [\n    {\"source\": \"buyer_operations_brief\", \"point\": \"responsibility\"},\n    {\"source\": \"buyer_operations_brief\", \"point\": \"facts\"},\n    {\"source\": \"deal_terms\", \"point\": \"implementation\"},\n    {\"source\": \"deal_terms\", \"point\": \"security\"},\n    {\"source\": \"deal_terms\", \"point\": \"contract\"},\n    {\"source\": \"supplier_offer\", \"point\": \"list_offer_usd\"}\n  ]\n}",
+  "approval_file": "approval.json",
+  "approval_sha256": "fc9db3e28b2d6aed1db2a786a3f605936374d28229ae894055c608938e1af2b7",
+  "owner": "OWNER",
+  "extra_fields": {},
+  "evaluation": {
+    "approval_conditions": "",
+    "concerns": "The cost of $450,000 USD for a 3-year subscription is high, but it is within the budget constraints. There are no additional concerns.",
+    "favor": true,
+    "reasons": "The DocStream AI document-processing platform meets the operational fit and usability requirements. The implementation timeline aligns with the need to go live within 16 weeks for the peak season, and the training period is feasible with two staff members. The security measures and contract terms are satisfactory."
+  },
+  "stated_rationale": {
+    "kind": "SAME_CALL_STATED",
+    "reasons": "The DocStream AI document-processing platform meets the operational fit and usability requirements. The implementation timeline aligns with the need to go live within 16 weeks for the peak season, and the training period is feasible with two staff members. The security measures and contract terms are satisfactory.",
+    "concerns": "The cost of $450,000 USD for a 3-year subscription is high, but it is within the budget constraints. There are no additional concerns.",
+    "approval_conditions": "",
+    "evidence_used": [
+      {
+        "source": "buyer_operations_brief",
+        "point": "responsibility"
+      },
+      {
+        "source": "buyer_operations_brief",
+        "point": "facts"
+      },
+      {
+        "source": "deal_terms",
+        "point": "implementation"
+      },
+      {
+        "source": "deal_terms",
+        "point": "security"
+      },
+      {
+        "source": "deal_terms",
+        "point": "contract"
+      },
+      {
+        "source": "supplier_offer",
+        "point": "list_offer_usd"
+      }
+    ]
+  },
+  "action": null,
+  "world": null,
+  "rule_checks": []
+}

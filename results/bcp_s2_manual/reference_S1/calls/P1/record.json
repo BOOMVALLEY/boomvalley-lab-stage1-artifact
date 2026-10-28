@@ -1,0 +1,96 @@
+{
+  "schema": "bcp-manual-call-record-1",
+  "evidence_class": "MANUAL HARNESS RECORD — not a BVL sealed package, not FULLMT-verified",
+  "call": "P1",
+  "sequence": 1,
+  "phase": "P",
+  "actor": "supplier_negotiator",
+  "role_ko": "공급자 협상 담당자 (가격 초안)",
+  "information": [
+    "supplier_negotiator_brief",
+    "world"
+  ],
+  "information_origin": {
+    "supplier_negotiator_brief": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_p/supplier_negotiator_brief.json",
+      "sha256": "768821631602c8b23778be16043e46dd9803e04d16f6af64f07c69d71a3da932",
+      "reply_variant": "seller_first_offer",
+      "changed_field": "reply"
+    }
+  },
+  "model_requested": "qwen2.5:7b-instruct",
+  "model_answered": "qwen2.5:7b-instruct",
+  "adapter_provenance": "bvl.openai-chat-adapter:1;system_fingerprint=fp_ollama",
+  "model_server_record": {
+    "available": true,
+    "name": "qwen2.5:7b-instruct",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "modified_at": "2026-09-28T20:42:47.2380456+09:00",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "ggml"
+    }
+  },
+  "options": {
+    "temperature": 0,
+    "max_tokens": 512,
+    "response_format": "json_object"
+  },
+  "seed": 847615031832498057,
+  "started_at": "2026-10-27T02:30:27.056+00:00",
+  "finished_at": "2026-10-27T02:30:54.102+00:00",
+  "duration_seconds": 27.047,
+  "request_file": "request.json",
+  "request_sha256": "d5448dd48c9671892767bbb84f50f36b24beb3dc2c11fa91ea368487764001de",
+  "response_file": "response.bin",
+  "response_sha256": "f20d14024d1aa8b25cb933dfab270554bbeecc562011f2e99a887b1834dd1b65",
+  "raw_response": "{\n    \"side\": \"seller\",\n    \"move\": \"offer\",\n    \"price\": 470000,\n    \"rationale\": \"Balancing the need to meet the quarterly sales target with the company's minimum acceptable price.\",\n    \"evidence_used\": [\n        {\"key\": \"facts\", \"point\": \"List price: 520,000 USD for 3 years.\"},\n        {\"key\": \"facts\", \"point\": \"Lowest price the company accepts: 430,000 USD.\"},\n        {\"key\": \"task\", \"point\": \"Draft the first price offer to Buyer Co.\"}\n    ],\n    \"concerns\": []\n}",
+  "approval_file": "approval.json",
+  "approval_sha256": "7ee031dfdcb6135405eea95f386e4da9f9210055d74b3c71e3df803b1beecd40",
+  "owner": "OWNER",
+  "extra_fields": {},
+  "action": {
+    "move": "offer",
+    "price": 470000,
+    "side": "seller"
+  },
+  "stated_rationale": {
+    "kind": "SAME_CALL_STATED",
+    "rationale": "Balancing the need to meet the quarterly sales target with the company's minimum acceptable price.",
+    "evidence_used": [
+      {
+        "key": "facts",
+        "point": "List price: 520,000 USD for 3 years."
+      },
+      {
+        "key": "facts",
+        "point": "Lowest price the company accepts: 430,000 USD."
+      },
+      {
+        "key": "task",
+        "point": "Draft the first price offer to Buyer Co."
+      }
+    ],
+    "concerns": []
+  },
+  "world_before_call": {
+    "deadline": 10,
+    "moves": 0,
+    "offers": {},
+    "price": 0,
+    "status": "open",
+    "turn": "seller"
+  },
+  "world": null,
+  "rule_checks": []
+}

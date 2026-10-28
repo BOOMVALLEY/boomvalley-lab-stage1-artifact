@@ -1,0 +1,11 @@
+{
+  "side": "seller",
+  "move": "accept",
+  "price": 450000,
+  "rationale": "The price offered matches our minimum acceptable price, and the deal is important for our quarterly sales target.",
+  "evidence_used": [
+    "supplier_draft.price",
+    "facts.lowest_price"
+  ],
+  "concerns": []
+}

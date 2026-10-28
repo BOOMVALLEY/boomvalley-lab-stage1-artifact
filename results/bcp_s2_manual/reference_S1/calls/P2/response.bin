@@ -1,0 +1,11 @@
+{
+  "side": "seller",
+  "move": "offer",
+  "price": 450000,
+  "rationale": "To balance the buyer's evaluation and our sales target, we propose a price that is slightly below the list price but above our minimum acceptance.",
+  "evidence_used": [
+    {"key": "supplier_draft", "point": "The initial draft price of 470000 USD was considered but adjusted to be more competitive."},
+    {"key": "facts", "point": "The lowest price the company accepts is 430,000 USD, and the list price is 520,000 USD for 3 years."}
+  ],
+  "concerns": []
+}

@@ -1,0 +1,11 @@
+{
+  "side": "seller",
+  "move": "accept",
+  "price": 420000,
+  "rationale": "To close the deal and meet the quarter's sales target, we accept the buyer's offer.",
+  "evidence_used": [
+    "world.offers.buyer: 420000",
+    "facts: The quarter's sales target makes this deal important."
+  ],
+  "concerns": []
+}

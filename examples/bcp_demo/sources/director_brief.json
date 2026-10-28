@@ -1,0 +1,7 @@
+{
+  "organization": "Buyer Co.",
+  "position": "Purchasing Director",
+  "situation": "Buyer Co. is considering a 3-year subscription to the DocStream AI document-processing platform from Supplier Co. The common deal terms are in deal_terms and Supplier Co.'s current offer is in supplier_offer; world shows the negotiation table. Evaluation reports from your colleagues that are available to you are included in the information below.",
+  "authority": "You decide Buyer Co.'s official move now. accept: buy at Supplier Co.'s offered price (price must equal world.offers.seller). offer: make a counter-offer at a price you choose. walk_away: end the talks.",
+  "reply": "Answer with one JSON object and nothing else: {\"side\": \"buyer\", \"move\": \"accept\" or \"offer\" or \"walk_away\", \"price\": <integer USD>}. For walk_away use price 0."
+}

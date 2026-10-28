@@ -1,0 +1,1856 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gndcrw-result/v0.1",
+  "title": "GNDCRW VerificationResult v0.1 (built from the independent spec oracle)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "result_version",
+    "tool",
+    "contracts",
+    "policy_id",
+    "subject",
+    "comparison_mode",
+    "outcome",
+    "findings",
+    "premises",
+    "limitations",
+    "summary"
+  ],
+  "properties": {
+    "result_version": {
+      "const": "gndcrw-result/v0.1"
+    },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version"
+      ],
+      "properties": {
+        "name": {
+          "const": "gndcrw"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "contracts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "declaration",
+        "target_catalog",
+        "surface",
+        "pair",
+        "verification"
+      ],
+      "properties": {
+        "declaration": {
+          "const": "gndcrw-declaration/v0.1"
+        },
+        "target_catalog": {
+          "const": "gndcrw-target-catalog/v0.1"
+        },
+        "surface": {
+          "const": "gndcrw-surface/v0.1"
+        },
+        "pair": {
+          "const": "gndcrw-pair/v0.1"
+        },
+        "verification": {
+          "const": "gndcrw-verification/v0.1"
+        }
+      }
+    },
+    "policy_id": {
+      "const": "GNDCRW-STRICT-0.1"
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "declaration",
+        "catalog",
+        "base_surface",
+        "candidate_surface",
+        "pair"
+      ],
+      "properties": {
+        "declaration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "intent_digest",
+            "content_digest"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "intent_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "content_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          }
+        },
+        "catalog": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "profile_id",
+            "catalog_digest"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "profile_id": {
+              "type": "string"
+            },
+            "catalog_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          }
+        },
+        "base_surface": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "content_digest"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "content_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          }
+        },
+        "candidate_surface": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "content_digest"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "content_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          }
+        },
+        "pair": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "content_digest"
+          ],
+          "properties": {
+            "content_digest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            }
+          }
+        }
+      }
+    },
+    "comparison_mode": {
+      "enum": [
+        "CONTROL",
+        "CONFIG_PERTURBATION",
+        "REFERENCE"
+      ]
+    },
+    "outcome": {
+      "enum": [
+        "RUN",
+        "BLOCK",
+        "UNVERIFIABLE"
+      ]
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "finding_version",
+          "finding_id",
+          "rule_id",
+          "finding_kind",
+          "status",
+          "policy_class",
+          "reason_code",
+          "target",
+          "observation_level",
+          "scope",
+          "expected",
+          "observed",
+          "evidence_pointers",
+          "premise_refs",
+          "limitation_refs"
+        ],
+        "properties": {
+          "finding_version": {
+            "const": "gndcrw-finding/v0.1"
+          },
+          "finding_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rule_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "finding_kind": {
+            "enum": [
+              "EXPECTED_CHANGE",
+              "INVARIANT",
+              "DECLARED_CONSEQUENCE",
+              "UNDECLARED_DIFFERENCE",
+              "COMPOSITION",
+              "ENTITY_COMPARABILITY",
+              "DECLARATION_PRECONDITION",
+              "ASSEMBLY_FIDELITY",
+              "PROVENANCE",
+              "PREMISE"
+            ]
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "WARNING",
+              "UNVERIFIABLE",
+              "NOT_APPLICABLE"
+            ]
+          },
+          "policy_class": {
+            "enum": [
+              "BLOCKING",
+              "REQUIRED_NONBLOCKING",
+              "ADVISORY"
+            ]
+          },
+          "reason_code": {
+            "enum": [
+              "ASSEMBLY_EQUIVALENCE_MISMATCH",
+              "ASSEMBLY_EQUIVALENCE_MISSING",
+              "ASSEMBLY_EQUIVALENCE_PROVEN",
+              "ATTRIBUTED_PREMISE_USED",
+              "COMPOSITION_CHANGE_ASSEMBLED",
+              "COMPOSITION_CHANGE_MISSING",
+              "COMPOSITION_INVARIANT_HELD",
+              "COMPOSITION_INVARIANT_VIOLATED",
+              "CONTRADICTORY_DECLARATION",
+              "DECLARED_CONSEQUENCE_NOT_OBSERVED",
+              "DECLARED_CONSEQUENCE_OBSERVED",
+              "DECLARED_CONSEQUENCE_UNOBSERVABLE",
+              "ENTITY_COMPARABILITY_NOT_ESTABLISHED",
+              "ENTITY_COMPARABILITY_UNKNOWN",
+              "ENTITY_MAPPING_MISSING",
+              "EXPECTED_CHANGE_ASSEMBLED",
+              "EXPECTED_CHANGE_MISSING",
+              "INVALID_COMPARISON_MODE",
+              "INVALID_DECLARATION_OPERATION",
+              "INVALID_DECLARATION_SCOPE",
+              "INVALID_DECLARATION_TARGET",
+              "INVARIANT_HELD",
+              "INVARIANT_VIOLATED",
+              "NO_FOCAL_EXPECTED_CHANGE",
+              "REQUIRED_PROVENANCE_MISSING",
+              "TARGET_AMBIGUOUS",
+              "TARGET_ASSERTED_ONLY",
+              "TARGET_MISSING",
+              "TARGET_UNOBSERVABLE",
+              "TARGET_UNSUPPORTED",
+              "UNDECLARED_DIFFERENCE"
+            ]
+          },
+          "target": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "kind",
+                  "id"
+                ],
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "TARGET",
+                      "COMPOSITION"
+                    ]
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          },
+          "observation_level": {
+            "enum": [
+              "SURFACE",
+              "COMPOSITION",
+              "ENTITY_FIELD",
+              "SUBSTRUCTURE",
+              "DECLARATION",
+              "PAIR",
+              "ASSEMBLY",
+              "PROVENANCE"
+            ]
+          },
+          "scope": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "kind"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "WHOLE_TARGET",
+                      "ALL_COMPARABLE",
+                      "EXPLICIT_ENTITY_IDS"
+                    ]
+                  },
+                  "entity_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "expected": {
+            "type": "object"
+          },
+          "observed": {
+            "type": "object"
+          },
+          "evidence_pointers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "premise_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "limitation_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "anyOf": [
+              {
+                "properties": {
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  },
+                  "status": {
+                    "enum": [
+                      "PASS",
+                      "FAIL",
+                      "UNVERIFIABLE",
+                      "NOT_APPLICABLE"
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "policy_class": {
+                    "const": "REQUIRED_NONBLOCKING"
+                  },
+                  "status": {
+                    "enum": [
+                      "PASS",
+                      "FAIL",
+                      "WARNING",
+                      "UNVERIFIABLE",
+                      "NOT_APPLICABLE"
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "policy_class": {
+                    "const": "ADVISORY"
+                  },
+                  "status": {
+                    "enum": [
+                      "PASS",
+                      "WARNING",
+                      "NOT_APPLICABLE"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "anyOf": [
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "ASSEMBLY_EQUIVALENCE_MISMATCH"
+                  },
+                  "status": {
+                    "const": "FAIL"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "ASSEMBLY_EQUIVALENCE_MISSING"
+                  },
+                  "status": {
+                    "const": "UNVERIFIABLE"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "ASSEMBLY_EQUIVALENCE_PROVEN"
+                  },
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "ATTRIBUTED_PREMISE_USED"
+                  },
+                  "status": {
+                    "const": "WARNING"
+                  },
+                  "policy_class": {
+                    "const": "ADVISORY"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "COMPOSITION_CHANGE_ASSEMBLED"
+                  },
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "COMPOSITION_CHANGE_MISSING"
+                  },
+                  "status": {
+                    "const": "FAIL"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "COMPOSITION_INVARIANT_HELD"
+                  },
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "COMPOSITION_INVARIANT_VIOLATED"
+                  },
+                  "status": {
+                    "const": "FAIL"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "CONTRADICTORY_DECLARATION"
+                  },
+                  "status": {
+                    "const": "FAIL"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "DECLARED_CONSEQUENCE_NOT_OBSERVED"
+                  },
+                  "status": {
+                    "const": "NOT_APPLICABLE"
+                  },
+                  "policy_class": {
+                    "const": "ADVISORY"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "DECLARED_CONSEQUENCE_OBSERVED"
+                  },
+                  "status": {
+                    "const": "WARNING"
+                  },
+                  "policy_class": {
+                    "const": "ADVISORY"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "DECLARED_CONSEQUENCE_UNOBSERVABLE"
+                  },
+                  "status": {
+                    "const": "WARNING"
+                  },
+                  "policy_class": {
+                    "const": "ADVISORY"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "ENTITY_COMPARABILITY_NOT_ESTABLISHED"
+                  },
+                  "status": {
+                    "const": "UNVERIFIABLE"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "ENTITY_COMPARABILITY_UNKNOWN"
+                  },
+                  "status": {
+                    "const": "UNVERIFIABLE"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "ENTITY_MAPPING_MISSING"
+                  },
+                  "status": {
+                    "const": "UNVERIFIABLE"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "EXPECTED_CHANGE_ASSEMBLED"
+                  },
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "EXPECTED_CHANGE_MISSING"
+                  },
+                  "status": {
+                    "const": "FAIL"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "INVALID_COMPARISON_MODE"
+                  },
+                  "status": {
+                    "const": "FAIL"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "INVALID_DECLARATION_OPERATION"
+                  },
+                  "status": {
+                    "const": "FAIL"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "INVALID_DECLARATION_SCOPE"
+                  },
+                  "status": {
+                    "const": "FAIL"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "INVALID_DECLARATION_TARGET"
+                  },
+                  "status": {
+                    "const": "FAIL"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "INVARIANT_HELD"
+                  },
+                  "status": {
+                    "const": "PASS"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "INVARIANT_VIOLATED"
+                  },
+                  "status": {
+                    "const": "FAIL"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "NO_FOCAL_EXPECTED_CHANGE"
+                  },
+                  "status": {
+                    "const": "FAIL"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "REQUIRED_PROVENANCE_MISSING"
+                  },
+                  "status": {
+                    "const": "UNVERIFIABLE"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "TARGET_AMBIGUOUS"
+                  },
+                  "status": {
+                    "const": "UNVERIFIABLE"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "TARGET_ASSERTED_ONLY"
+                  },
+                  "status": {
+                    "const": "UNVERIFIABLE"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "TARGET_MISSING"
+                  },
+                  "status": {
+                    "const": "UNVERIFIABLE"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "TARGET_UNOBSERVABLE"
+                  },
+                  "status": {
+                    "const": "UNVERIFIABLE"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "TARGET_UNSUPPORTED"
+                  },
+                  "status": {
+                    "const": "UNVERIFIABLE"
+                  },
+                  "policy_class": {
+                    "const": "BLOCKING"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "reason_code": {
+                    "const": "UNDECLARED_DIFFERENCE"
+                  },
+                  "status": {
+                    "const": "WARNING"
+                  },
+                  "policy_class": {
+                    "const": "ADVISORY"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "DECLARATION_PRECONDITION"
+                },
+                "reason_code": {
+                  "pattern": "^INVALID_DECLARATION_"
+                }
+              },
+              "required": [
+                "finding_kind",
+                "reason_code"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [],
+                      "properties": {}
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "container"
+                      ],
+                      "properties": {
+                        "container": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "DECLARATION_PRECONDITION"
+                },
+                "reason_code": {
+                  "const": "CONTRADICTORY_DECLARATION"
+                }
+              },
+              "required": [
+                "finding_kind",
+                "reason_code"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [],
+                      "properties": {}
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "rule_ids"
+                      ],
+                      "properties": {
+                        "rule_ids": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "DECLARATION_PRECONDITION"
+                },
+                "reason_code": {
+                  "const": "NO_FOCAL_EXPECTED_CHANGE"
+                }
+              },
+              "required": [
+                "finding_kind",
+                "reason_code"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [],
+                      "properties": {}
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [],
+                      "properties": {}
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "DECLARATION_PRECONDITION"
+                },
+                "reason_code": {
+                  "const": "INVALID_COMPARISON_MODE"
+                }
+              },
+              "required": [
+                "finding_kind",
+                "reason_code"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "required_mode"
+                      ],
+                      "properties": {
+                        "required_mode": {}
+                      }
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "comparison_mode"
+                      ],
+                      "properties": {
+                        "comparison_mode": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "ASSEMBLY_FIDELITY"
+                }
+              },
+              "required": [
+                "finding_kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [],
+                      "properties": {}
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "equivalence_status",
+                        "method",
+                        "mode",
+                        "surface"
+                      ],
+                      "properties": {
+                        "equivalence_status": {},
+                        "method": {},
+                        "mode": {},
+                        "surface": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "PROVENANCE"
+                }
+              },
+              "required": [
+                "finding_kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [],
+                      "properties": {}
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "missing",
+                        "surface"
+                      ],
+                      "properties": {
+                        "missing": {},
+                        "surface": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "PREMISE"
+                }
+              },
+              "required": [
+                "finding_kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [],
+                      "properties": {}
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "premise_id"
+                      ],
+                      "properties": {
+                        "premise_id": {}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "subject"
+                      ],
+                      "properties": {
+                        "subject": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "EXPECTED_CHANGE"
+                },
+                "observation_level": {
+                  "enum": [
+                    "ENTITY_FIELD"
+                  ]
+                }
+              },
+              "required": [
+                "finding_kind",
+                "observation_level"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "operation",
+                        "quantifier"
+                      ],
+                      "properties": {
+                        "operation": {},
+                        "quantifier": {}
+                      }
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "base_observability",
+                        "candidate_observability"
+                      ],
+                      "properties": {
+                        "base_observability": {},
+                        "candidate_observability": {}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "comparability"
+                      ],
+                      "properties": {
+                        "comparability": {}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "comparable_entities",
+                        "satisfied_entities",
+                        "scoped_entities",
+                        "unmapped_entity_ids",
+                        "violating_entities",
+                        "violating_entity_ids"
+                      ],
+                      "properties": {
+                        "comparable_entities": {},
+                        "satisfied_entities": {},
+                        "scoped_entities": {},
+                        "unmapped_entity_ids": {},
+                        "violating_entities": {},
+                        "violating_entity_ids": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "INVARIANT"
+                },
+                "observation_level": {
+                  "enum": [
+                    "ENTITY_FIELD"
+                  ]
+                }
+              },
+              "required": [
+                "finding_kind",
+                "observation_level"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "operation",
+                        "quantifier"
+                      ],
+                      "properties": {
+                        "operation": {},
+                        "quantifier": {}
+                      }
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "base_observability",
+                        "candidate_observability"
+                      ],
+                      "properties": {
+                        "base_observability": {},
+                        "candidate_observability": {}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "comparability"
+                      ],
+                      "properties": {
+                        "comparability": {}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "comparable_entities",
+                        "satisfied_entities",
+                        "scoped_entities",
+                        "unmapped_entity_ids",
+                        "violating_entities",
+                        "violating_entity_ids"
+                      ],
+                      "properties": {
+                        "comparable_entities": {},
+                        "satisfied_entities": {},
+                        "scoped_entities": {},
+                        "unmapped_entity_ids": {},
+                        "violating_entities": {},
+                        "violating_entity_ids": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "EXPECTED_CHANGE"
+                },
+                "observation_level": {
+                  "enum": [
+                    "SURFACE",
+                    "SUBSTRUCTURE"
+                  ]
+                }
+              },
+              "required": [
+                "finding_kind",
+                "observation_level"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "operation"
+                      ],
+                      "properties": {
+                        "operation": {}
+                      }
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "base_observability",
+                        "candidate_observability"
+                      ],
+                      "properties": {
+                        "base_observability": {},
+                        "candidate_observability": {}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "equal"
+                      ],
+                      "properties": {
+                        "equal": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "INVARIANT"
+                },
+                "observation_level": {
+                  "enum": [
+                    "SURFACE",
+                    "SUBSTRUCTURE"
+                  ]
+                }
+              },
+              "required": [
+                "finding_kind",
+                "observation_level"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "operation"
+                      ],
+                      "properties": {
+                        "operation": {}
+                      }
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "base_observability",
+                        "candidate_observability"
+                      ],
+                      "properties": {
+                        "base_observability": {},
+                        "candidate_observability": {}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "equal"
+                      ],
+                      "properties": {
+                        "equal": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "COMPOSITION"
+                }
+              },
+              "required": [
+                "finding_kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "operation"
+                      ],
+                      "properties": {
+                        "operation": {}
+                      }
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "added_count",
+                        "added_ids",
+                        "base_count",
+                        "candidate_count",
+                        "intersection_size",
+                        "removed_count",
+                        "removed_ids"
+                      ],
+                      "properties": {
+                        "added_count": {},
+                        "added_ids": {},
+                        "base_count": {},
+                        "candidate_count": {},
+                        "intersection_size": {},
+                        "removed_count": {},
+                        "removed_ids": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "DECLARED_CONSEQUENCE"
+                }
+              },
+              "required": [
+                "finding_kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "authority"
+                      ],
+                      "properties": {
+                        "authority": {}
+                      }
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "added_count",
+                        "added_ids",
+                        "base_count",
+                        "candidate_count",
+                        "intersection_size",
+                        "removed_count",
+                        "removed_ids"
+                      ],
+                      "properties": {
+                        "added_count": {},
+                        "added_ids": {},
+                        "base_count": {},
+                        "candidate_count": {},
+                        "intersection_size": {},
+                        "removed_count": {},
+                        "removed_ids": {}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "base_observability",
+                        "candidate_observability"
+                      ],
+                      "properties": {
+                        "base_observability": {},
+                        "candidate_observability": {}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "comparability"
+                      ],
+                      "properties": {
+                        "comparability": {}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "comparable_entities",
+                        "differing_entities",
+                        "differing_entity_ids",
+                        "scoped_entities",
+                        "unmapped_entity_ids"
+                      ],
+                      "properties": {
+                        "comparable_entities": {},
+                        "differing_entities": {},
+                        "differing_entity_ids": {},
+                        "scoped_entities": {},
+                        "unmapped_entity_ids": {}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "equal"
+                      ],
+                      "properties": {
+                        "equal": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "finding_kind": {
+                  "const": "UNDECLARED_DIFFERENCE"
+                }
+              },
+              "required": [
+                "finding_kind"
+              ]
+            },
+            "then": {
+              "properties": {
+                "expected": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [],
+                      "properties": {}
+                    }
+                  ]
+                },
+                "observed": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "added_count",
+                        "added_ids",
+                        "base_count",
+                        "candidate_count",
+                        "intersection_size",
+                        "removed_count",
+                        "removed_ids"
+                      ],
+                      "properties": {
+                        "added_count": {},
+                        "added_ids": {},
+                        "base_count": {},
+                        "candidate_count": {},
+                        "intersection_size": {},
+                        "removed_count": {},
+                        "removed_ids": {}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "comparable_entities",
+                        "differing_entities",
+                        "differing_entity_ids"
+                      ],
+                      "properties": {
+                        "comparable_entities": {},
+                        "differing_entities": {},
+                        "differing_entity_ids": {}
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "equal"
+                      ],
+                      "properties": {
+                        "equal": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "premises": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "premise_id",
+          "statement",
+          "authority",
+          "scope",
+          "accepted_by_rules",
+          "limitations"
+        ],
+        "properties": {
+          "premise_id": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "authority": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "id"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "RESEARCHER",
+                  "PROVIDER",
+                  "CONTRACT"
+                ]
+              },
+              "id": {
+                "type": "string"
+              }
+            }
+          },
+          "scope": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "accepted_by_rules": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "limitation_id",
+          "code",
+          "scope",
+          "details"
+        ],
+        "properties": {
+          "limitation_id": {
+            "type": "string",
+            "pattern": "^LIM::"
+          },
+          "code": {
+            "enum": [
+              "ATTRIBUTED_PREMISE_NOT_INDEPENDENTLY_VERIFIED",
+              "ASSERTED_ONLY_EVIDENCE",
+              "ENTITY_UNDECLARED_SCAN_NOT_PERFORMED",
+              "OBSERVATION_UNAVAILABLE"
+            ]
+          },
+          "scope": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "details": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "finding_count",
+        "by_status",
+        "by_policy_class"
+      ],
+      "properties": {
+        "finding_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "by_status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "PASS",
+            "FAIL",
+            "WARNING",
+            "UNVERIFIABLE",
+            "NOT_APPLICABLE"
+          ],
+          "properties": {
+            "PASS": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "FAIL": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "WARNING": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "UNVERIFIABLE": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "NOT_APPLICABLE": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "by_policy_class": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "BLOCKING",
+            "REQUIRED_NONBLOCKING",
+            "ADVISORY"
+          ],
+          "properties": {
+            "BLOCKING": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "REQUIRED_NONBLOCKING": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "ADVISORY": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    }
+  }
+}

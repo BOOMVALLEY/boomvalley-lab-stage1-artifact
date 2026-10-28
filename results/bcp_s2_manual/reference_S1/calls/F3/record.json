@@ -1,0 +1,139 @@
+{
+  "schema": "bcp-manual-call-record-1",
+  "evidence_class": "MANUAL HARNESS RECORD — not a BVL sealed package, not FULLMT-verified",
+  "call": "F3",
+  "sequence": 12,
+  "phase": "F",
+  "actor": "supplier_manager",
+  "role_ko": "공급자 관리자 (공식 대응 결정)",
+  "information": [
+    "supplier_draft",
+    "supplier_manager_response_brief",
+    "world"
+  ],
+  "information_origin": {
+    "supplier_draft": {
+      "kind": "call_output",
+      "call": "F2",
+      "what": "the draft's side/move/price as canonical JSON, as BVL renders an actor_output (the draft's rationale is not passed on)"
+    },
+    "supplier_manager_response_brief": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_rf/supplier_manager_response_brief.json",
+      "sha256": "0ca754d674ccb08ac775dc65244ee24f49fb8de494f7938c4e7bcd81a8b2c509",
+      "reply_variant": "seller_response",
+      "changed_field": "reply"
+    }
+  },
+  "model_requested": "qwen2.5:7b-instruct",
+  "model_answered": "qwen2.5:7b-instruct",
+  "adapter_provenance": "bvl.openai-chat-adapter:1;system_fingerprint=fp_ollama",
+  "model_server_record": {
+    "available": true,
+    "name": "qwen2.5:7b-instruct",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "modified_at": "2026-09-28T20:42:47.2380456+09:00",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "ggml"
+    }
+  },
+  "options": {
+    "temperature": 0,
+    "max_tokens": 512,
+    "response_format": "json_object"
+  },
+  "seed": 3091829416551317448,
+  "started_at": "2026-10-27T04:13:22.089+00:00",
+  "finished_at": "2026-10-27T04:13:27.108+00:00",
+  "duration_seconds": 5.018,
+  "request_file": "request.json",
+  "request_sha256": "894b9a905d984f6b1b9fb09998a99816ae3e259bc34b89c67a2309245519b7a0",
+  "response_file": "response.bin",
+  "response_sha256": "db1fba07f08ff288a40a4223d78a56833d71c7f32fb6216c56b9af9ed037b727",
+  "raw_response": "{\n  \"side\": \"seller\",\n  \"move\": \"accept\",\n  \"price\": 450000,\n  \"rationale\": \"The price offered matches our minimum acceptable price, and the deal is important for our sales target.\",\n  \"evidence_used\": [\n    \"supplier_draft.price\",\n    \"facts.lowest_price\"\n  ],\n  \"concerns\": []\n}",
+  "approval_file": "approval.json",
+  "approval_sha256": "131429d1c996bfbed09614bd5dc84764e8753f6ef2bf77945de09eceb9d2ba6b",
+  "owner": "OWNER",
+  "extra_fields": {},
+  "action": {
+    "move": "accept",
+    "price": 450000,
+    "side": "seller"
+  },
+  "stated_rationale": {
+    "kind": "SAME_CALL_STATED",
+    "rationale": "The price offered matches our minimum acceptable price, and the deal is important for our sales target.",
+    "evidence_used": [
+      "supplier_draft.price",
+      "facts.lowest_price"
+    ],
+    "concerns": []
+  },
+  "world_before_call": {
+    "deadline": 10,
+    "moves": 2,
+    "offers": {
+      "seller": 450000
+    },
+    "price": 450000,
+    "status": "agreed",
+    "turn": "seller"
+  },
+  "world": {
+    "schema": "bvl-world-transition-2",
+    "requested_action": {
+      "move": "accept",
+      "price": 450000,
+      "side": "seller"
+    },
+    "admissibility_verdict": "INADMISSIBLE",
+    "admissible_action": {},
+    "executed_action": {},
+    "pre_state": {
+      "deadline": 10,
+      "moves": 2,
+      "offers": {
+        "seller": 450000
+      },
+      "price": 450000,
+      "status": "agreed",
+      "turn": "seller"
+    },
+    "post_state": {
+      "deadline": 10,
+      "moves": 2,
+      "offers": {
+        "seller": 450000
+      },
+      "price": 450000,
+      "status": "agreed",
+      "turn": "seller"
+    },
+    "outcome": {
+      "moves": 2,
+      "offers": {
+        "seller": 450000
+      },
+      "price": 450000,
+      "ruling": "closed",
+      "side": "seller",
+      "status": "agreed"
+    },
+    "action_input": "ACTION",
+    "executed": false,
+    "exogenous_events": []
+  },
+  "rule_checks": [
+    "TALKS_ALREADY_CLOSED: 협상이 이미 agreed — World 는 이 결정을 적용하지 않음"
+  ]
+}

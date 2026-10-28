@@ -1,0 +1,103 @@
+{
+  "schema": "bcp-manual-call-record-1",
+  "evidence_class": "MANUAL HARNESS RECORD — not a BVL sealed package, not FULLMT-verified",
+  "call": "E2",
+  "sequence": 4,
+  "phase": "E",
+  "actor": "buyer_finance",
+  "role_ko": "구매자 재무 평가자",
+  "information": [
+    "buyer_finance_brief",
+    "deal_terms",
+    "supplier_offer",
+    "world"
+  ],
+  "information_origin": {
+    "buyer_finance_brief": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_e/buyer_finance_brief.json",
+      "sha256": "d50ba3d1779a5fd5e1e5bdace77f8e8709678b5731dac90152e7dcf9f2b5baec",
+      "reply_variant": "evaluation",
+      "changed_field": "reply"
+    },
+    "deal_terms": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_e/deal_terms.json",
+      "sha256": "949c89ff9bbd60ebbb5c0a194a122707a8b3bea62f4021a04e9add6b736e1e42"
+    },
+    "supplier_offer": {
+      "kind": "call_output",
+      "call": "P2",
+      "what": "World post_state offers.seller (layout of sources/supplier_offer.json)"
+    }
+  },
+  "model_requested": "qwen2.5:7b-instruct",
+  "model_answered": "qwen2.5:7b-instruct",
+  "adapter_provenance": "bvl.openai-chat-adapter:1;system_fingerprint=fp_ollama",
+  "model_server_record": {
+    "available": true,
+    "name": "qwen2.5:7b-instruct",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "modified_at": "2026-09-28T20:42:47.2380456+09:00",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "ggml"
+    }
+  },
+  "options": {
+    "temperature": 0,
+    "max_tokens": 512,
+    "response_format": "json_object"
+  },
+  "seed": 5849110602801454774,
+  "started_at": "2026-10-27T03:57:35.239+00:00",
+  "finished_at": "2026-10-27T03:57:54.409+00:00",
+  "duration_seconds": 19.169,
+  "request_file": "request.json",
+  "request_sha256": "3c95a6a6d1bfd4773feb1e74ba365ac8053ccff54ac3674449133dcdb829d189",
+  "response_file": "response.bin",
+  "response_sha256": "546c321e9e580b2333ad3c63fd721eefb39eed3aa0b9321c716b93652229ef73",
+  "raw_response": "{\n  \"favor\": true,\n  \"reasons\": \"The supplier's offer is within the approved budget, and the expected savings are significant.\",\n  \"approval_conditions\": \"\",\n  \"concerns\": \"The implementation period is relatively long, and there might be risks during this phase. However, given the expected savings and the fact that the offer is within budget, these concerns can be managed.\",\n  \"evidence_used\": [\n    {\"source\": \"buyer_finance_brief\", \"point\": \"approved 3-year budget: 480,000 USD\"},\n    {\"source\": \"buyer_finance_brief\", \"point\": \"expected savings: 210,000 USD per year\"},\n    {\"source\": \"supplier_offer\", \"point\": \"list_offer_usd: 450,000 USD\"}\n  ]\n}",
+  "approval_file": "approval.json",
+  "approval_sha256": "ea88ae1eeaab77c7da22e2a898317098a7c4434bec1791aa72509174722f52ad",
+  "owner": "OWNER",
+  "extra_fields": {},
+  "evaluation": {
+    "approval_conditions": "",
+    "concerns": "The implementation period is relatively long, and there might be risks during this phase. However, given the expected savings and the fact that the offer is within budget, these concerns can be managed.",
+    "favor": true,
+    "reasons": "The supplier's offer is within the approved budget, and the expected savings are significant."
+  },
+  "stated_rationale": {
+    "kind": "SAME_CALL_STATED",
+    "reasons": "The supplier's offer is within the approved budget, and the expected savings are significant.",
+    "concerns": "The implementation period is relatively long, and there might be risks during this phase. However, given the expected savings and the fact that the offer is within budget, these concerns can be managed.",
+    "approval_conditions": "",
+    "evidence_used": [
+      {
+        "source": "buyer_finance_brief",
+        "point": "approved 3-year budget: 480,000 USD"
+      },
+      {
+        "source": "buyer_finance_brief",
+        "point": "expected savings: 210,000 USD per year"
+      },
+      {
+        "source": "supplier_offer",
+        "point": "list_offer_usd: 450,000 USD"
+      }
+    ]
+  },
+  "action": null,
+  "world": null,
+  "rule_checks": []
+}

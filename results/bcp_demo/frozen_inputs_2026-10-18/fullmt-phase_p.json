@@ -1,0 +1,277 @@
+{
+  "dispatch": {
+    "handler": "verify_manifest_4",
+    "manifest_file": "MANIFEST-4.json",
+    "manifest_schema": "boomvalley-lab-manifest-4",
+    "meaning": "CONFORMANCE"
+  },
+  "failed_rules": [],
+  "input": {
+    "manifest_digest": "sha256:f6f0628283d9007ef40c43bcba667654bf6aa9229d492c84225c03913c2ee881",
+    "manifest_file": "MANIFEST-4.json",
+    "package_path": "phase_p"
+  },
+  "limitations": {
+    "consumer": [
+      {
+        "code": "CONFORMANCE_NOT_SCIENTIFIC_EVIDENCE",
+        "detail": "a VERIFIED CONFORMANCE package says the run conformed to its frozen plan and protocol; it is not scientific evidence and supports no scientific claim"
+      },
+      {
+        "code": "NOT_SIGNED",
+        "detail": "the package carries no signature: who produced these bytes is not established"
+      },
+      {
+        "code": "WORLD_CODE_NOT_REPLAYED",
+        "detail": "World transitions are checked for identity, chaining, admissibility and progression as evidenced; the World's code is not executed by this reader"
+      },
+      {
+        "code": "ACTOR_CALLS_NOT_REEXECUTED",
+        "detail": "responses are bound by digest to custody; no model or provider call is repeated"
+      },
+      {
+        "code": "BUILD_AND_PLUGIN_SET_SELF_REPORTED",
+        "detail": "build and plugin-set identities recompute from the execution binding document, whose content is the producer's own statement"
+      },
+      {
+        "code": "GATE_INPUTS_SUPPLIED_NOT_DERIVED",
+        "detail": "gate-2 inputs (coverage, GNDCRW result set) are bound and re-walked as supplied; GNDCRW itself is not re-run"
+      },
+      {
+        "code": "OBSERVATION_DIGESTS_ATTESTED_NOT_RECOMPUTED",
+        "detail": "L1 dataset units carry observation digests as the producer attested them"
+      }
+    ],
+    "producer_declared": [
+      "CONFORMANCE_PACKAGE_NOT_SCIENTIFIC_EVIDENCE",
+      "FULLMT_MANIFEST4_SPIKE_READER_REQUIRED",
+      "GATE2_INPUTS_SUPPLIED_NOT_DERIVED",
+      "PLUGIN_SET_NOT_ENGINE_RESOLVED"
+    ],
+    "producer_declared_codes": [
+      "CONFORMANCE_PACKAGE_NOT_SCIENTIFIC_EVIDENCE",
+      "FULLMT_MANIFEST4_SPIKE_READER_REQUIRED",
+      "GATE2_INPUTS_SUPPLIED_NOT_DERIVED",
+      "PLUGIN_SET_NOT_ENGINE_RESOLVED"
+    ]
+  },
+  "manifest_identity": {
+    "digest": "sha256:c140329ac968d8a03357a620fd535721a87b52341d2637d0cab686b4cb5b2500",
+    "kind": "evidence_manifest"
+  },
+  "meaning": "CONFORMANCE",
+  "observed": {
+    "analysis": {
+      "admitted": 1,
+      "digest": "sha256:0d262a8c48398de608a284df6cc5954d866341dd40395b089d879eeb6750467c",
+      "excluded": 0,
+      "metrics": {
+        "decisions": [
+          "1/1"
+        ]
+      },
+      "status": "COMPUTED"
+    },
+    "attested": {
+      "custody_accepted_calls": 2,
+      "episodes": [
+        {
+          "episode": {
+            "digest": "sha256:b9f8c298714aadfe77f73fcce6e63dfadbe1c953a7d0b522464d0ae8e0585421",
+            "kind": "episode"
+          },
+          "episode_key": "episode-1",
+          "rounds_executed": 1,
+          "rounds_planned": 1,
+          "schedule_position": 0,
+          "steps": 6,
+          "terminated_by_ir": false
+        }
+      ],
+      "experiment_id": "bcp-minimal-demo-phase-p",
+      "protocol_ir": "bvl-protocol-ir-1",
+      "run": "bcp-minimal-demo-phase-p.cell",
+      "steps_by_kind": {
+        "actor_call": 2,
+        "decision": 1,
+        "proposal_parse": 2,
+        "world_transition": 1
+      },
+      "world_transitions_applied": 1
+    },
+    "dataset_units": {
+      "counts": {
+        "calls": 2,
+        "decisions": 1,
+        "eligible": 1,
+        "proposals": 2
+      },
+      "digest": "sha256:75c4fb2b933cd2ae9a903c63b7e85130c5c4326c3d701830113a0598689cca66"
+    },
+    "evidence_level": "L1",
+    "external_actors": {
+      "arguments_from_frozen_sources": 0,
+      "arguments_re_derived": 0,
+      "human_exchanges": 0,
+      "model_calls": 2,
+      "mutations": {},
+      "participants": 0,
+      "provenance_grades": {},
+      "tool_attempts": 0,
+      "tool_calls": 0,
+      "tool_reconciliations": 0
+    },
+    "members": 22
+  },
+  "outcome": "VERIFIED",
+  "package_class": "CONFORMANCE",
+  "package_identity": "sha256:c140329ac968d8a03357a620fd535721a87b52341d2637d0cab686b4cb5b2500",
+  "plan": {
+    "digest": "sha256:e1dd2d6b2b156144b6f81c1d4d3008e6bb4ff723e9d5ee49b0218603338a2242",
+    "kind": "plan"
+  },
+  "result_schema": "fullmt-manifest4-verification-result/1",
+  "rules": [
+    {
+      "layer": "L2",
+      "rule_id": "M4-MAN",
+      "status": "PASS",
+      "title": "manifest closed and canonical-json-1 at rest; schema; plan is a PlanIdentity; members closed, portable unique paths in path order, known roles; limitations a sorted list of unique codes"
+    },
+    {
+      "layer": "L1",
+      "rule_id": "M4-MEM",
+      "status": "PASS",
+      "title": "every member is a regular file inside the root (no link) with the listed SHA-256 and the listed size"
+    },
+    {
+      "layer": "L1",
+      "rule_id": "M4-UNL",
+      "status": "PASS",
+      "title": "no file under the root other than members and MANIFEST-4.json"
+    },
+    {
+      "layer": "L2",
+      "rule_id": "M4-ROL",
+      "status": "PASS",
+      "title": "each member's role is the one its layout place prescribes; evidence and request members are canonical and named by their content digest"
+    },
+    {
+      "layer": "L2",
+      "rule_id": "M4-CLS",
+      "status": "PASS",
+      "title": "package class CONFORMANCE with exactly the CONFORMANCE limitation set; SCIENTIFIC has no manifest-4 semantics and is refused"
+    },
+    {
+      "layer": "L3",
+      "rule_id": "M4-JRN",
+      "status": "PASS",
+      "title": "journal-2: canonical JSONL, no torn tail, sequence 0..n-1, one run, RUN_OPENED at 0 only, no refused / unknown / rejected / failed / aborted event"
+    },
+    {
+      "layer": "L3",
+      "rule_id": "M4-AUT",
+      "status": "PASS",
+      "title": "gate-2 CLEARED for the plan; execution binding, build / plugin-set and AuthorizationIdentity recompute; RUN_OPENED names exactly them"
+    },
+    {
+      "layer": "L3",
+      "rule_id": "M4-PLN",
+      "status": "PASS",
+      "title": "one plan member recomputes the manifest PlanIdentity and holds one closed Protocol IR with its actor / information / proposal / decision / analysis / seed / World / memory / round contracts in closed form"
+    },
+    {
+      "layer": "L3",
+      "rule_id": "M4-EPI",
+      "status": "PASS",
+      "title": "every episode recomputes from plan x authorization x episode_key; steps are rounds x topological order (StepIdentity, RoundIdentity, DAG and schedule identities recomputed); termination verdicts re-derived; completed once"
+    },
+    {
+      "layer": "L3",
+      "rule_id": "M4-CMT",
+      "status": "PASS",
+      "title": "each step carries exactly the commit event its node kind prescribes, after every dependency's commit"
+    },
+    {
+      "layer": "L3",
+      "rule_id": "M4-ART",
+      "status": "PASS",
+      "title": "proposal / decision / memory identities recompute from their content and are exactly the ones journal-2 commits, at their step and round"
+    },
+    {
+      "layer": "L3",
+      "rule_id": "M4-CUS",
+      "status": "PASS",
+      "title": "custody entries canonical; each accepted call recomputes its CustodyEntryIdentity and names request and response members with the recorded bytes; accepted calls are the actor-call steps"
+    },
+    {
+      "layer": "L3",
+      "rule_id": "M4-WLD",
+      "status": "PASS",
+      "title": "World transitions: transition / intent / state identities recompute; states versioned and chained; admissibility, progression, RNG policy and seed binding as the plan's World contract froze them; each confirmed once"
+    },
+    {
+      "layer": "L3",
+      "rule_id": "M4-LIN",
+      "status": "PASS",
+      "title": "every IR dependency edge is the evidence lineage (call -> proposal -> decision -> World intent -> memory); builtin decision rules recompute; memory lifecycle, cross-episode carry and regime interaction as declared"
+    },
+    {
+      "layer": "L3",
+      "rule_id": "M4-L1C",
+      "status": "PASS",
+      "title": "L1 call bindings: Call / Actor / Role / ExecutionProfile identities, request-2 model / renderer / options / seed, default-deny access trace, upstream and memory observations recompute from the plan"
+    },
+    {
+      "layer": "L3",
+      "rule_id": "M4-RQR",
+      "status": "PASS",
+      "title": "the package holds every evidence role the IR's node kinds require"
+    },
+    {
+      "layer": "L5",
+      "rule_id": "M4-ATT",
+      "status": "PASS",
+      "title": "exactly one conformance attestation, equal to this reader's own re-derivation from the evidence (incl. ERF coverage and the GNDCRW comparison set when the gate bound them)"
+    },
+    {
+      "layer": "L5",
+      "rule_id": "M4-L1D",
+      "status": "PASS",
+      "title": "L1 dataset units equal this reader's own reconstruction byte for byte; a pre-L1 package holds none"
+    },
+    {
+      "layer": "L5",
+      "rule_id": "M4-ANA",
+      "status": "PASS",
+      "title": "the bound analysis output equals this reader's own recomputation over the admitted units (exact rational arithmetic); none when no analysis is bound"
+    },
+    {
+      "layer": "L3",
+      "rule_id": "M4-EXT",
+      "status": "PASS",
+      "title": "external actors (P17): every actor call is answered by the caller its plan declares - a human exchange (consent, request intent, delivery, response) or a tool call (intent, arguments, result) re-derived from its named evidence under the plan's contract; no human / tool record or member is unaccounted for"
+    }
+  ],
+  "summary": {
+    "FAIL": 0,
+    "NOT_EVALUATED": 0,
+    "PASS": 20
+  },
+  "verifier": {
+    "code_digest": null,
+    "code_digest_method": "git-source-manifest-v1",
+    "handlers": [
+      "boomvalley-lab-manifest-4"
+    ],
+    "name": "fullmt-manifest4-reader",
+    "producer_contract": {
+      "commit": "db21f4275c512e0b220d8a7ee7889b7bf71296de",
+      "repository": "boomvalley-lab",
+      "tag": "v1.0.0"
+    },
+    "source_commit": null,
+    "source_tree": "unavailable",
+    "version": "0.12.0"
+  }
+}

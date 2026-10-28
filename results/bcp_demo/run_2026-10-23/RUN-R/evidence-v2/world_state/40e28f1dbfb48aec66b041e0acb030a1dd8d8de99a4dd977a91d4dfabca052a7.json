@@ -1,0 +1,1 @@
+{"identity":{"digest":"sha256:c28ac882e600de88c001ac1dff890449926b72a921633c171fa494b35db64992","kind":"world_state"},"schema":"boomvalley-lab-world-state-evidence-2","state":{"deadline":10,"moves":3,"offers":{"buyer":420000,"seller":450000},"price":420000,"status":"agreed","turn":"buyer"},"state_schema":"bvl.negotiation-state:1"}

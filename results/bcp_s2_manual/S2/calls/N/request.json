@@ -1,0 +1,47 @@
+{
+  "schema": "bcp-s2-request-1",
+  "step": "N",
+  "actor": "supplier_negotiator",
+  "world_origin": {
+    "file": "<BCP_R_RUN>\\evidence-v2\\world_state\\74ec4cc1dc0270380db5201f4f12ccd5f38ba82ae6b0113ffa478b7294cffe3a.json",
+    "sha256": "74ec4cc1dc0270380db5201f4f12ccd5f38ba82ae6b0113ffa478b7294cffe3a"
+  },
+  "information_origin": {
+    "supplier_negotiator_response_brief": {
+      "kind": "frozen_file",
+      "file": "<S1_KIT>\\inputs\\original\\phase_rf\\supplier_negotiator_response_brief.json",
+      "sha256": "fd6246284cff688f208b7f4d7d55c70073aca0ad5c59c510bed74c12aaa9cf0c",
+      "reply_variant": "seller_response",
+      "changed_field": "reply"
+    }
+  },
+  "original_request": {
+    "file": "<BCP_R_RUN>\\requests-v2\\request-078d3acccfcf22ff10307959d8cac300daf2f6651eb15fcbb3ed185e6c10546c.json",
+    "options": {
+      "max_tokens": 96,
+      "response_format": "json_object",
+      "temperature": 0
+    },
+    "resolved_seed": 6900140034330824044,
+    "renderer_identity": "bvl.json-renderer:1"
+  },
+  "request": {
+    "schema": "boomvalley-lab-request-2",
+    "messages": [
+      {
+        "role": "user",
+        "content": "{\"actor\":\"supplier_negotiator\",\"information\":{\"supplier_negotiator_response_brief\":\"{\\n  \\\"organization\\\": \\\"Supplier Co., vendor of the DocStream AI document-processing platform\\\",\\n  \\\"position\\\": \\\"Sales Negotiator\\\",\\n  \\\"situation\\\": \\\"You made Supplier Co.'s offer earlier; it is world.offers.seller. world shows the negotiation table now, including Buyer Co.'s latest move (world.offers.buyer is Buyer Co.'s bid, if any; world.status shows whether the talks are still open).\\\",\\n  \\\"facts\\\": \\\"List price: 520,000 USD for 3 years. Lowest price the company accepts: 430,000 USD. The quarter's sales target makes this deal important.\\\",\\n  \\\"task\\\": \\\"Draft Supplier Co.'s response. Your Commercial Manager decides the official move.\\\",\\n  \\\"reply\\\": \\\"Answer with one JSON object and nothing else: {\\\\\\\"side\\\\\\\": \\\\\\\"seller\\\\\\\", \\\\\\\"move\\\\\\\": \\\\\\\"accept\\\\\\\" or \\\\\\\"offer\\\\\\\" or \\\\\\\"walk_away\\\\\\\", \\\\\\\"price\\\\\\\": <integer USD>, \\\\\\\"rationale\\\\\\\": <string>, \\\\\\\"evidence_used\\\\\\\": [<string>, ...], \\\\\\\"concerns\\\\\\\": [<string>, ...]}. For accept, price is exactly world.offers.buyer. For walk_away use price 0. rationale: the main reasons for your decision, in at most three sentences. evidence_used: the information you relied on, each item naming its source (a key of information, or world) and the point you used. concerns: the concerns that affected your decision (an empty list if none).\\\"\\n}\\n\"},\"round\":1,\"world\":{\"deadline\":10,\"moves\":2,\"offers\":{\"buyer\":420000,\"seller\":450000},\"price\":0,\"status\":\"open\",\"turn\":\"seller\"}}"
+      }
+    ],
+    "options": {
+      "temperature": 0,
+      "max_tokens": 512,
+      "response_format": "json_object"
+    },
+    "resolved_seed": 6900140034330824044,
+    "model_identity": "qwen2.5:7b-instruct",
+    "renderer_identity": "bcp-manual:json-message (bvl.json-renderer:1 layout)",
+    "codec_identity": "builtin.chat-messages-codec:1",
+    "corroboration_grade": "CLIENT_CANONICAL"
+  }
+}

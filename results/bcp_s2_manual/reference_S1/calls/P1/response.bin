@@ -1,0 +1,12 @@
+{
+    "side": "seller",
+    "move": "offer",
+    "price": 470000,
+    "rationale": "Balancing the need to meet the quarterly sales target with the company's minimum acceptable price.",
+    "evidence_used": [
+        {"key": "facts", "point": "List price: 520,000 USD for 3 years."},
+        {"key": "facts", "point": "Lowest price the company accepts: 430,000 USD."},
+        {"key": "task", "point": "Draft the first price offer to Buyer Co."}
+    ],
+    "concerns": []
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "bcp-manual-request-1",
+  "call": "F2",
+  "phase": "F",
+  "actor": "supplier_negotiator",
+  "information_origin": {
+    "supplier_negotiator_response_brief": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_rf/supplier_negotiator_response_brief.json",
+      "sha256": "fd6246284cff688f208b7f4d7d55c70073aca0ad5c59c510bed74c12aaa9cf0c",
+      "reply_variant": "seller_response",
+      "changed_field": "reply"
+    }
+  },
+  "request": {
+    "schema": "boomvalley-lab-request-2",
+    "messages": [
+      {
+        "role": "user",
+        "content": "{\"actor\":\"supplier_negotiator\",\"information\":{\"supplier_negotiator_response_brief\":\"{\\n  \\\"organization\\\": \\\"Supplier Co., vendor of the DocStream AI document-processing platform\\\",\\n  \\\"position\\\": \\\"Sales Negotiator\\\",\\n  \\\"situation\\\": \\\"You made Supplier Co.'s offer earlier; it is world.offers.seller. world shows the negotiation table now, including Buyer Co.'s latest move (world.offers.buyer is Buyer Co.'s bid, if any; world.status shows whether the talks are still open).\\\",\\n  \\\"facts\\\": \\\"List price: 520,000 USD for 3 years. Lowest price the company accepts: 430,000 USD. The quarter's sales target makes this deal important.\\\",\\n  \\\"task\\\": \\\"Draft Supplier Co.'s response. Your Commercial Manager decides the official move.\\\",\\n  \\\"reply\\\": \\\"Answer with one JSON object and nothing else: {\\\\\\\"side\\\\\\\": \\\\\\\"seller\\\\\\\", \\\\\\\"move\\\\\\\": \\\\\\\"accept\\\\\\\" or \\\\\\\"offer\\\\\\\" or \\\\\\\"walk_away\\\\\\\", \\\\\\\"price\\\\\\\": <integer USD>, \\\\\\\"rationale\\\\\\\": <string>, \\\\\\\"evidence_used\\\\\\\": [<string>, ...], \\\\\\\"concerns\\\\\\\": [<string>, ...]}. For accept, price is exactly world.offers.buyer. For walk_away use price 0. rationale: the main reasons for your decision, in at most three sentences. evidence_used: the information you relied on, each item naming its source (a key of information, or world) and the point you used. concerns: the concerns that affected your decision (an empty list if none).\\\"\\n}\\n\"},\"round\":1,\"world\":{\"deadline\":10,\"moves\":2,\"offers\":{\"seller\":450000},\"price\":450000,\"status\":\"agreed\",\"turn\":\"seller\"}}"
+      }
+    ],
+    "options": {
+      "temperature": 0,
+      "max_tokens": 512,
+      "response_format": "json_object"
+    },
+    "resolved_seed": 6907441999911058501,
+    "model_identity": "qwen2.5:7b-instruct",
+    "renderer_identity": "bcp-manual:json-message (bvl.json-renderer:1 layout)",
+    "codec_identity": "builtin.chat-messages-codec:1",
+    "corroboration_grade": "CLIENT_CANONICAL"
+  }
+}

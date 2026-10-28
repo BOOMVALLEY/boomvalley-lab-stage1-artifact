@@ -1,0 +1,39 @@
+{
+  "schema": "bcp-manual-request-1",
+  "call": "P2",
+  "phase": "P",
+  "actor": "supplier_manager",
+  "information_origin": {
+    "supplier_draft": {
+      "kind": "call_output",
+      "call": "P1",
+      "what": "the draft's side/move/price as canonical JSON, as BVL renders an actor_output (the draft's rationale is not passed on)"
+    },
+    "supplier_manager_brief": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_p/supplier_manager_brief.json",
+      "sha256": "1ab3fb6530d81ed130e19fa87e2046de291625613db6f02909ad21566649dbd4",
+      "reply_variant": "seller_first_offer",
+      "changed_field": "reply"
+    }
+  },
+  "request": {
+    "schema": "boomvalley-lab-request-2",
+    "messages": [
+      {
+        "role": "user",
+        "content": "{\"actor\":\"supplier_manager\",\"information\":{\"supplier_draft\":\"{\\\"move\\\":\\\"offer\\\",\\\"price\\\":470000,\\\"side\\\":\\\"seller\\\"}\",\"supplier_manager_brief\":\"{\\n  \\\"organization\\\": \\\"Supplier Co., vendor of the DocStream AI document-processing platform\\\",\\n  \\\"position\\\": \\\"Commercial Manager\\\",\\n  \\\"situation\\\": \\\"Buyer Co. is evaluating a 3-year DocStream subscription including implementation. Your negotiator's draft is the information source supplier_draft. world shows the negotiation table.\\\",\\n  \\\"facts\\\": \\\"List price: 520,000 USD for 3 years. Lowest price the company accepts: 430,000 USD. The quarter's sales target makes this deal important.\\\",\\n  \\\"authority\\\": \\\"You decide Supplier Co.'s official first offer. You may adopt the draft or set a different price.\\\",\\n  \\\"reply\\\": \\\"Answer with one JSON object and nothing else: {\\\\\\\"side\\\\\\\": \\\\\\\"seller\\\\\\\", \\\\\\\"move\\\\\\\": \\\\\\\"offer\\\\\\\", \\\\\\\"price\\\\\\\": <integer USD>, \\\\\\\"rationale\\\\\\\": <string>, \\\\\\\"evidence_used\\\\\\\": [<string>, ...], \\\\\\\"concerns\\\\\\\": [<string>, ...]}. rationale: the main reasons for your decision, in at most three sentences. evidence_used: the information you relied on, each item naming its source (a key of information, or world) and the point you used. concerns: the concerns that affected your decision (an empty list if none).\\\"\\n}\\n\"},\"round\":1,\"world\":{\"deadline\":10,\"moves\":0,\"offers\":{},\"price\":0,\"status\":\"open\",\"turn\":\"seller\"}}"
+      }
+    ],
+    "options": {
+      "temperature": 0,
+      "max_tokens": 512,
+      "response_format": "json_object"
+    },
+    "resolved_seed": 8561160300196211618,
+    "model_identity": "qwen2.5:7b-instruct",
+    "renderer_identity": "bcp-manual:json-message (bvl.json-renderer:1 layout)",
+    "codec_identity": "builtin.chat-messages-codec:1",
+    "corroboration_grade": "CLIENT_CANONICAL"
+  }
+}

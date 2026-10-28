@@ -1,0 +1,8 @@
+{
+  "side": "seller",
+  "move": "accept",
+  "price": 450000,
+  "rationale": "The price aligns with our current market strategy and the urgency of meeting this quarter's sales target.",
+  "evidence_used": ["world.offers.buyer", "facts"],
+  "concerns": []
+}

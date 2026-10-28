@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boomvalley"
+version = "1.0.0rc3"
+description = "BOOMVALLEY V2 — executable research instrument for computational organization experiments"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+
+# Runtime dependencies stay empty: the evidence model, the runtime and every
+# verification path must work on a machine with no third-party library at all.
+# YAML input is an extra (see `yaml` below) for exactly that reason.
+dependencies = []
+
+[project.scripts]
+# The product CLI. Named for the product: `boomvalley` is the research
+# instrument's namespace in this repository and is not shadowed.
+boomvalley-lab = "boomvalley_lab.cli:run"
+# The experiment-input front-end: `bvl-experiment-2` -> Input Lock -> an
+# INPUT_LOCKED run. Same package, same domain; `boomvalley-lab` is unchanged.
+bvl = "boomvalley_lab.cli.bvl:run"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "ruff>=0.5",
+    # SV-11: the property-based tests (tests/lab/test_lab_sv11_*.py). A test dependency
+    # only: nothing under src/ imports it.
+    "hypothesis>=6.100",
+]
+# The real model adapter only. Kept out of `dependencies` on purpose: the
+# scientific core - assembly, protocol, parser, endpoints, statistics, offline
+# analysis - must keep working on a machine with no provider library and no
+# credentials, which is what keyless analysis reproduction means.
+provider = [
+    "anthropic>=1.0",
+]
+# BOOMVALLEY-lab's CLI reads YAML declarations with PyYAML. Kept out of
+# `dependencies` deliberately: JSON declarations, every run, every audit and
+# every package verification work without it, and identity is over the
+# canonical document, never over the input format.
+yaml = [
+    "pyyaml>=6",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# --------------------------------------------------------------------------
+# pytest
+# --------------------------------------------------------------------------
+# `pythonpath` lets the test suite import the package without requiring an
+# editable install, so the environment check works on a machine that cannot
+# reach a package index.
+[tool.pytest.ini_options]
+minversion = "7.4"
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+markers = [
+    "slow: builds an isolated environment (clean-install acceptance)",
+]
+
+# --------------------------------------------------------------------------
+# ruff
+# --------------------------------------------------------------------------
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+# "." lets ruff resolve `tests` as first-party alongside `boomvalley` in src/.
+src = ["src", "."]
+exclude = [".venv"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+]

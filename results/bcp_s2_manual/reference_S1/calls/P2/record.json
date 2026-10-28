@@ -1,0 +1,158 @@
+{
+  "schema": "bcp-manual-call-record-1",
+  "evidence_class": "MANUAL HARNESS RECORD — not a BVL sealed package, not FULLMT-verified",
+  "call": "P2",
+  "sequence": 2,
+  "phase": "P",
+  "actor": "supplier_manager",
+  "role_ko": "공급자 관리자 (공식 최초 제안 결정)",
+  "information": [
+    "supplier_draft",
+    "supplier_manager_brief",
+    "world"
+  ],
+  "information_origin": {
+    "supplier_draft": {
+      "kind": "call_output",
+      "call": "P1",
+      "what": "the draft's side/move/price as canonical JSON, as BVL renders an actor_output (the draft's rationale is not passed on)"
+    },
+    "supplier_manager_brief": {
+      "kind": "frozen_file",
+      "file": "inputs/original/phase_p/supplier_manager_brief.json",
+      "sha256": "1ab3fb6530d81ed130e19fa87e2046de291625613db6f02909ad21566649dbd4",
+      "reply_variant": "seller_first_offer",
+      "changed_field": "reply"
+    }
+  },
+  "model_requested": "qwen2.5:7b-instruct",
+  "model_answered": "qwen2.5:7b-instruct",
+  "adapter_provenance": "bvl.openai-chat-adapter:1;system_fingerprint=fp_ollama",
+  "model_server_record": {
+    "available": true,
+    "name": "qwen2.5:7b-instruct",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "modified_at": "2026-09-28T20:42:47.2380456+09:00",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "ggml"
+    }
+  },
+  "options": {
+    "temperature": 0,
+    "max_tokens": 512,
+    "response_format": "json_object"
+  },
+  "seed": 8561160300196211618,
+  "started_at": "2026-10-27T02:32:19.704+00:00",
+  "finished_at": "2026-10-27T02:32:36.863+00:00",
+  "duration_seconds": 17.159,
+  "request_file": "request.json",
+  "request_sha256": "c76ce2734fdc34f996d47bc616a5277fe2e0a73b77fb4ec8077f71a713388a4e",
+  "response_file": "response.bin",
+  "response_sha256": "98f3e4719ba795ad78bd68af0fb3e3d684fbb9242fa875393be8e6f08b19aa6f",
+  "raw_response": "{\n  \"side\": \"seller\",\n  \"move\": \"offer\",\n  \"price\": 450000,\n  \"rationale\": \"To balance the buyer's evaluation and our sales target, we propose a price that is slightly below the list price but above our minimum acceptance.\",\n  \"evidence_used\": [\n    {\"key\": \"supplier_draft\", \"point\": \"The initial draft price of 470000 USD was considered but adjusted to be more competitive.\"},\n    {\"key\": \"facts\", \"point\": \"The lowest price the company accepts is 430,000 USD, and the list price is 520,000 USD for 3 years.\"}\n  ],\n  \"concerns\": []\n}",
+  "approval_file": "approval.json",
+  "approval_sha256": "fef1153f21619d1b6b91c7de4cb45497a0d0b8a6ba2f551488715a104e22ca96",
+  "owner": "OWNER",
+  "extra_fields": {},
+  "action": {
+    "move": "offer",
+    "price": 450000,
+    "side": "seller"
+  },
+  "stated_rationale": {
+    "kind": "SAME_CALL_STATED",
+    "rationale": "To balance the buyer's evaluation and our sales target, we propose a price that is slightly below the list price but above our minimum acceptance.",
+    "evidence_used": [
+      {
+        "key": "supplier_draft",
+        "point": "The initial draft price of 470000 USD was considered but adjusted to be more competitive."
+      },
+      {
+        "key": "facts",
+        "point": "The lowest price the company accepts is 430,000 USD, and the list price is 520,000 USD for 3 years."
+      }
+    ],
+    "concerns": []
+  },
+  "world_before_call": {
+    "deadline": 10,
+    "moves": 0,
+    "offers": {},
+    "price": 0,
+    "status": "open",
+    "turn": "seller"
+  },
+  "world": {
+    "schema": "bvl-world-transition-2",
+    "requested_action": {
+      "move": "offer",
+      "price": 450000,
+      "side": "seller"
+    },
+    "admissibility_verdict": "ADMISSIBLE",
+    "admissible_action": {
+      "move": "offer",
+      "price": 450000,
+      "side": "seller"
+    },
+    "executed_action": {
+      "move": "offer",
+      "price": 450000,
+      "side": "seller"
+    },
+    "pre_state": {
+      "deadline": 10,
+      "moves": 0,
+      "offers": {},
+      "price": 0,
+      "status": "open",
+      "turn": "seller"
+    },
+    "post_state": {
+      "deadline": 10,
+      "moves": 1,
+      "offers": {
+        "seller": 450000
+      },
+      "price": 0,
+      "status": "open",
+      "turn": "buyer"
+    },
+    "outcome": {
+      "moves": 1,
+      "offers": {
+        "seller": 450000
+      },
+      "price": 0,
+      "ruling": "tabled",
+      "side": "seller",
+      "status": "open"
+    },
+    "action_input": "ACTION",
+    "executed": true,
+    "exogenous_events": [
+      {
+        "event": "turn_passed",
+        "detail": {
+          "from": "seller",
+          "moves": 1,
+          "to": "buyer"
+        }
+      }
+    ]
+  },
+  "rule_checks": [
+    "DIFFERS_FROM_DRAFT: 초안 {\"move\":\"offer\",\"price\":470000,\"side\":\"seller\"} → 결정 {\"move\":\"offer\",\"price\":450000,\"side\":\"seller\"}"
+  ]
+}

@@ -1,0 +1,358 @@
+{
+  "schema": "bvl-study-1",
+  "experiment_id": "bcp-minimal-demo-phase-e",
+  "episode_key": "episode-1",
+  "root_seed": 20261019,
+  "protocol": {
+    "rounds": 1,
+    "nodes": [
+      {
+        "id": "e_it_call",
+        "kind": "actor_call",
+        "config": {
+          "actor": "buyer_it"
+        }
+      },
+      {
+        "id": "e_it_parse",
+        "kind": "proposal_parse",
+        "depends_on": [
+          "e_it_call"
+        ]
+      },
+      {
+        "id": "e_it_decision",
+        "kind": "decision",
+        "depends_on": [
+          "e_it_parse"
+        ]
+      },
+      {
+        "id": "e_fin_call",
+        "kind": "actor_call",
+        "config": {
+          "actor": "buyer_finance"
+        }
+      },
+      {
+        "id": "e_fin_parse",
+        "kind": "proposal_parse",
+        "depends_on": [
+          "e_fin_call"
+        ]
+      },
+      {
+        "id": "e_fin_decision",
+        "kind": "decision",
+        "depends_on": [
+          "e_fin_parse"
+        ]
+      },
+      {
+        "id": "e_ops_call",
+        "kind": "actor_call",
+        "config": {
+          "actor": "buyer_operations"
+        }
+      },
+      {
+        "id": "e_ops_parse",
+        "kind": "proposal_parse",
+        "depends_on": [
+          "e_ops_call"
+        ]
+      },
+      {
+        "id": "e_ops_decision",
+        "kind": "decision",
+        "depends_on": [
+          "e_ops_parse"
+        ]
+      },
+      {
+        "id": "e_pro_call",
+        "kind": "actor_call",
+        "config": {
+          "actor": "buyer_procurement"
+        }
+      },
+      {
+        "id": "e_pro_parse",
+        "kind": "proposal_parse",
+        "depends_on": [
+          "e_pro_call"
+        ]
+      },
+      {
+        "id": "e_pro_decision",
+        "kind": "decision",
+        "depends_on": [
+          "e_pro_parse"
+        ]
+      }
+    ]
+  },
+  "initial_world_state": {},
+  "roles": [
+    "buyer_it",
+    "buyer_finance",
+    "buyer_operations",
+    "buyer_procurement"
+  ],
+  "profiles": [
+    {
+      "profile_id": "buyer-it-profile",
+      "provider": "bvl.openai-chat-adapter:1",
+      "model": "qwen2.5:7b-instruct",
+      "renderer": "bvl.json-renderer:1",
+      "options": {
+        "temperature": 0,
+        "max_tokens": 512,
+        "response_format": "json_object"
+      }
+    },
+    {
+      "profile_id": "buyer-finance-profile",
+      "provider": "bvl.openai-chat-adapter:1",
+      "model": "qwen2.5:7b-instruct",
+      "renderer": "bvl.json-renderer:1",
+      "options": {
+        "temperature": 0,
+        "max_tokens": 512,
+        "response_format": "json_object"
+      }
+    },
+    {
+      "profile_id": "buyer-operations-profile",
+      "provider": "bvl.openai-chat-adapter:1",
+      "model": "qwen2.5:7b-instruct",
+      "renderer": "bvl.json-renderer:1",
+      "options": {
+        "temperature": 0,
+        "max_tokens": 512,
+        "response_format": "json_object"
+      }
+    },
+    {
+      "profile_id": "buyer-procurement-profile",
+      "provider": "bvl.openai-chat-adapter:1",
+      "model": "qwen2.5:7b-instruct",
+      "renderer": "bvl.json-renderer:1",
+      "options": {
+        "temperature": 0,
+        "max_tokens": 512,
+        "response_format": "json_object"
+      }
+    }
+  ],
+  "actors": [
+    {
+      "actor_id": "buyer_it",
+      "role": "buyer_it",
+      "profile": "buyer-it-profile"
+    },
+    {
+      "actor_id": "buyer_finance",
+      "role": "buyer_finance",
+      "profile": "buyer-finance-profile"
+    },
+    {
+      "actor_id": "buyer_operations",
+      "role": "buyer_operations",
+      "profile": "buyer-operations-profile"
+    },
+    {
+      "actor_id": "buyer_procurement",
+      "role": "buyer_procurement",
+      "profile": "buyer-procurement-profile"
+    }
+  ],
+  "information": {
+    "sources": [
+      {
+        "source_id": "deal_terms",
+        "kind": "frozen_resource",
+        "path": "sources/deal_terms.json"
+      },
+      {
+        "source_id": "supplier_offer",
+        "kind": "frozen_resource",
+        "path": "sources/supplier_offer.json"
+      },
+      {
+        "source_id": "buyer_it_brief",
+        "kind": "frozen_resource",
+        "path": "sources/buyer_it_brief.json"
+      },
+      {
+        "source_id": "buyer_finance_brief",
+        "kind": "frozen_resource",
+        "path": "sources/buyer_finance_brief.json"
+      },
+      {
+        "source_id": "buyer_operations_brief",
+        "kind": "frozen_resource",
+        "path": "sources/buyer_operations_brief.json"
+      },
+      {
+        "source_id": "buyer_procurement_brief",
+        "kind": "frozen_resource",
+        "path": "sources/buyer_procurement_brief.json"
+      }
+    ],
+    "access": [
+      {
+        "actor": "buyer_it",
+        "source": "buyer_it_brief",
+        "effect": "ALLOW"
+      },
+      {
+        "actor": "buyer_it",
+        "source": "deal_terms",
+        "effect": "ALLOW"
+      },
+      {
+        "actor": "buyer_it",
+        "source": "supplier_offer",
+        "effect": "ALLOW"
+      },
+      {
+        "actor": "buyer_finance",
+        "source": "buyer_finance_brief",
+        "effect": "ALLOW"
+      },
+      {
+        "actor": "buyer_finance",
+        "source": "deal_terms",
+        "effect": "ALLOW"
+      },
+      {
+        "actor": "buyer_finance",
+        "source": "supplier_offer",
+        "effect": "ALLOW"
+      },
+      {
+        "actor": "buyer_operations",
+        "source": "buyer_operations_brief",
+        "effect": "ALLOW"
+      },
+      {
+        "actor": "buyer_operations",
+        "source": "deal_terms",
+        "effect": "ALLOW"
+      },
+      {
+        "actor": "buyer_operations",
+        "source": "supplier_offer",
+        "effect": "ALLOW"
+      },
+      {
+        "actor": "buyer_procurement",
+        "source": "buyer_procurement_brief",
+        "effect": "ALLOW"
+      },
+      {
+        "actor": "buyer_procurement",
+        "source": "deal_terms",
+        "effect": "ALLOW"
+      },
+      {
+        "actor": "buyer_procurement",
+        "source": "supplier_offer",
+        "effect": "ALLOW"
+      }
+    ]
+  },
+  "proposals": {
+    "schemas": [
+      {
+        "schema": "bvl-proposal-schema-1",
+        "schema_id": "buyer-evaluation",
+        "version": 1,
+        "fields": {
+          "favor": "boolean",
+          "reasons": "string",
+          "approval_conditions": "string",
+          "concerns": "string"
+        },
+        "allow_no_action": false
+      }
+    ],
+    "contracts": [
+      {
+        "node_id": "e_it_parse",
+        "schema": "buyer-evaluation:1",
+        "parser": "bvl.json-proposal-parser:1",
+        "on_invalid": "PARSE_FAILURE"
+      },
+      {
+        "node_id": "e_fin_parse",
+        "schema": "buyer-evaluation:1",
+        "parser": "bvl.json-proposal-parser:1",
+        "on_invalid": "PARSE_FAILURE"
+      },
+      {
+        "node_id": "e_ops_parse",
+        "schema": "buyer-evaluation:1",
+        "parser": "bvl.json-proposal-parser:1",
+        "on_invalid": "PARSE_FAILURE"
+      },
+      {
+        "node_id": "e_pro_parse",
+        "schema": "buyer-evaluation:1",
+        "parser": "bvl.json-proposal-parser:1",
+        "on_invalid": "PARSE_FAILURE"
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "node_id": "e_it_decision",
+      "rule": "builtin.single-authority:1",
+      "authority": [
+        "buyer_it"
+      ],
+      "on_unresolved": "FAIL_EPISODE"
+    },
+    {
+      "node_id": "e_fin_decision",
+      "rule": "builtin.single-authority:1",
+      "authority": [
+        "buyer_finance"
+      ],
+      "on_unresolved": "FAIL_EPISODE"
+    },
+    {
+      "node_id": "e_ops_decision",
+      "rule": "builtin.single-authority:1",
+      "authority": [
+        "buyer_operations"
+      ],
+      "on_unresolved": "FAIL_EPISODE"
+    },
+    {
+      "node_id": "e_pro_decision",
+      "rule": "builtin.single-authority:1",
+      "authority": [
+        "buyer_procurement"
+      ],
+      "on_unresolved": "FAIL_EPISODE"
+    }
+  ],
+  "analysis": {
+    "analysis_id": "bcp-phase-e",
+    "metrics": [
+      {
+        "metric_id": "decisions",
+        "kind": "unit_count",
+        "table": "decisions"
+      }
+    ]
+  },
+  "plugin_config": {
+    "bvl.openai-chat-adapter:1": {
+      "endpoint": "http://127.0.0.1:11434/v1",
+      "timeout_seconds": 300
+    }
+  }
+}

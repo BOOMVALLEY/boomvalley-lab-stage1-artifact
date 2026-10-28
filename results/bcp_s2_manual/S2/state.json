@@ -1,0 +1,102 @@
+{
+  "schema": "bcp-s2-session-1",
+  "session": "S2",
+  "created_at": "2026-10-27T10:25:12.998+00:00",
+  "endpoint": "http://127.0.0.1:11434/v1",
+  "model": "qwen2.5:7b-instruct",
+  "model_server_record": {
+    "available": true,
+    "name": "qwen2.5:7b-instruct",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "modified_at": "2026-09-28T20:42:47.2380456+09:00",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "ggml"
+    }
+  },
+  "kit": {
+    "<S2_KIT>\\bcp_s2.py": "c4a2ad009fb433c748c1dd1057259b1443c61439bef674d7d4a19219471e360c",
+    "<S1_KIT>\\bcp_manual.py": "afc1b57d29eea71c7b017c82538fc48458bf5d4e4a56d98df7ce88de7ff0113a",
+    "<S1_KIT>\\protocol.json": "bbb863280fdf15234d07aabe2e07e31a0b643b2adaa6103f7973f457dd976009",
+    "<BCP_R_RUN>\\evidence-v2\\world_state\\74ec4cc1dc0270380db5201f4f12ccd5f38ba82ae6b0113ffa478b7294cffe3a.json": "74ec4cc1dc0270380db5201f4f12ccd5f38ba82ae6b0113ffa478b7294cffe3a",
+    "<BCP_R_RUN>\\requests-v2\\request-078d3acccfcf22ff10307959d8cac300daf2f6651eb15fcbb3ed185e6c10546c.json": "078d3acccfcf22ff10307959d8cac300daf2f6651eb15fcbb3ed185e6c10546c",
+    "<BCP_R_RUN>\\requests-v2\\request-c6e13f68083f532d8ba371da91875a0ee314e9623e934621221b4824a50d7b3f.json": "c6e13f68083f532d8ba371da91875a0ee314e9623e934621221b4824a50d7b3f",
+    "<S1_KIT>\\inputs\\original\\phase_rf\\supplier_negotiator_response_brief.json": "fd6246284cff688f208b7f4d7d55c70073aca0ad5c59c510bed74c12aaa9cf0c",
+    "<S1_KIT>\\inputs\\original\\phase_rf\\supplier_manager_response_brief.json": "0ca754d674ccb08ac775dc65244ee24f49fb8de494f7938c4e7bcd81a8b2c509"
+  },
+  "bvl_reuse": {
+    "boomvalley_lab_version": "1.0.0rc3",
+    "python": "3.14.5",
+    "modules": {
+      "boomvalley_lab": {
+        "path": "<VENV>\\Lib\\site-packages\\boomvalley_lab\\__init__.py",
+        "sha256": "be812515a4a0844e68b4b7732661c3e9d434e9ca717c216de889a983f6d46eef"
+      },
+      "boomvalley_lab.providers.openai_chat": {
+        "path": "<VENV>\\Lib\\site-packages\\boomvalley_lab\\providers\\openai_chat.py",
+        "sha256": "1af9386c22c05ed9f844de91a22e6e26b154dbd5ff7a1cd9c7eb268e4c4b7628"
+      },
+      "boomvalley_lab.domains.negotiation": {
+        "path": "<VENV>\\Lib\\site-packages\\boomvalley_lab\\domains\\negotiation.py",
+        "sha256": "25e580d14c7278e2bb38fadcad3e2cfcea150d2e52f00139d76b00886691beeb"
+      },
+      "boomvalley_lab.kernel.proposals": {
+        "path": "<VENV>\\Lib\\site-packages\\boomvalley_lab\\kernel\\proposals.py",
+        "sha256": "13a9d6b83422f8ea8cb4826a1642a0418b34d50755ea8680c9de4b434006ce17"
+      },
+      "boomvalley_lab.lifecycle.plugins": {
+        "path": "<VENV>\\Lib\\site-packages\\boomvalley_lab\\lifecycle\\plugins.py",
+        "sha256": "435085e220e1723b7793a5b874957b7e9c885b6381a7cdcef757f1c0fe008b9e"
+      }
+    }
+  },
+  "restoration": {
+    "checks": {
+      "world_state_file_matches_original_negotiator_request_world": true,
+      "world_state_file_matches_original_manager_request_world": true,
+      "world_is_after_buyer_counter_420000": true,
+      "negotiator_message_rebuilt_byte_identical": true,
+      "manager_message_rebuilt_byte_identical_with_original_draft": true
+    },
+    "original_draft": {
+      "move": "offer",
+      "price": 440000,
+      "side": "seller"
+    }
+  },
+  "restored_world": {
+    "deadline": 10,
+    "moves": 2,
+    "offers": {
+      "buyer": 420000,
+      "seller": 450000
+    },
+    "price": 0,
+    "status": "open",
+    "turn": "seller"
+  },
+  "evidence_class": "MANUAL HARNESS RECORD — not a BVL sealed package, not FULLMT-verified",
+  "done": {
+    "N": {
+      "sequence": 1,
+      "record_sha256": "cd0e45577cab50d367f95f656cf99ea589f99bd159c59f45dfdf05afbb9934d9",
+      "finished_at": "2026-10-27T10:29:41.279+00:00"
+    },
+    "M": {
+      "sequence": 2,
+      "record_sha256": "512c60ef30b56068cd0dc588d138e41be82ee94a5295f4f6f0e28d5721cf024e",
+      "finished_at": "2026-10-27T10:37:34.376+00:00"
+    }
+  },
+  "sequence": 2,
+  "halted": null
+}

@@ -1,0 +1,9 @@
+{
+  "organization": "Buyer Co.",
+  "position": "IT Evaluator",
+  "responsibility": "technical fit, security, integration",
+  "situation": "Buyer Co. is considering a 3-year subscription to the DocStream AI document-processing platform from Supplier Co. The common deal terms are in deal_terms and Supplier Co.'s current offer is in supplier_offer.",
+  "facts": "Company security standard: a penetration-test result must be reviewed before any core business system goes live.",
+  "task": "Give your own assessment of this purchase from your function's point of view. You do not decide the purchase; the Purchasing Director does.",
+  "reply": "Write in English. Answer with one JSON object and nothing else, with exactly these fields: \"favor\": true if you are in favor of buying on the current offer, false otherwise; \"reasons\": string; \"approval_conditions\": string, what would need to be true for you to support the purchase (empty if none); \"concerns\": string, unresolved concerns (empty if none)."
+}

@@ -1,0 +1,8 @@
+{
+  "organization": "Supplier Co., vendor of the DocStream AI document-processing platform",
+  "position": "Sales Negotiator",
+  "situation": "Buyer Co. is evaluating a 3-year DocStream subscription including implementation. No price has been offered yet. world shows the negotiation table.",
+  "facts": "List price: 520,000 USD for 3 years. Lowest price the company accepts: 430,000 USD. The quarter's sales target makes this deal important.",
+  "task": "Draft the first price offer to Buyer Co. Your Commercial Manager decides the official offer.",
+  "reply": "Answer with one JSON object and nothing else: {\"side\": \"seller\", \"move\": \"offer\", \"price\": <integer USD>}."
+}

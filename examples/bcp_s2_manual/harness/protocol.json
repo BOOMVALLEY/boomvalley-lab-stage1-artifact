@@ -1,0 +1,117 @@
+{
+  "schema": "bcp-manual-protocol-1",
+  "experiment": "bcp-manual-rationale",
+  "base_protocol": "examples/bcp_demo (bcp-minimal-demo phases P, E, R, F)",
+  "model": "qwen2.5:7b-instruct",
+  "endpoint": "http://127.0.0.1:11434/v1",
+  "timeout_seconds": 300,
+  "base_seed": 20261020,
+  "options": {
+    "move": {"temperature": 0, "max_tokens": 512, "response_format": "json_object"},
+    "evaluation": {"temperature": 0, "max_tokens": 512, "response_format": "json_object"}
+  },
+  "worlds": {
+    "P": {"deadline": 10, "moves": 0, "offers": {}, "price": 0, "status": "open", "turn": "seller"},
+    "E": {},
+    "R": "P_POST_STATE",
+    "F": "P_POST_STATE"
+  },
+  "facts": {
+    "seller_list_usd": 520000,
+    "seller_floor_usd": 430000,
+    "buyer_budget_usd": 480000,
+    "liability_cap_months": 12,
+    "buyer_rule_liability_cap_months": 24
+  },
+  "replies": {
+    "seller_first_offer": {
+      "original": "Answer with one JSON object and nothing else: {\"side\": \"seller\", \"move\": \"offer\", \"price\": <integer USD>}.",
+      "manual": "Answer with one JSON object and nothing else: {\"side\": \"seller\", \"move\": \"offer\", \"price\": <integer USD>, \"rationale\": <string>, \"evidence_used\": [<string>, ...], \"concerns\": [<string>, ...]}. rationale: the main reasons for your decision, in at most three sentences. evidence_used: the information you relied on, each item naming its source (a key of information, or world) and the point you used. concerns: the concerns that affected your decision (an empty list if none)."
+    },
+    "seller_response": {
+      "original": "Answer with one JSON object and nothing else: {\"side\": \"seller\", \"move\": \"accept\" or \"offer\" or \"walk_away\", \"price\": <integer USD>}. For accept, price is exactly world.offers.buyer. For walk_away use price 0.",
+      "manual": "Answer with one JSON object and nothing else: {\"side\": \"seller\", \"move\": \"accept\" or \"offer\" or \"walk_away\", \"price\": <integer USD>, \"rationale\": <string>, \"evidence_used\": [<string>, ...], \"concerns\": [<string>, ...]}. For accept, price is exactly world.offers.buyer. For walk_away use price 0. rationale: the main reasons for your decision, in at most three sentences. evidence_used: the information you relied on, each item naming its source (a key of information, or world) and the point you used. concerns: the concerns that affected your decision (an empty list if none)."
+    },
+    "buyer_move": {
+      "original": "Answer with one JSON object and nothing else: {\"side\": \"buyer\", \"move\": \"accept\" or \"offer\" or \"walk_away\", \"price\": <integer USD>}. For walk_away use price 0.",
+      "manual": "Answer with one JSON object and nothing else: {\"side\": \"buyer\", \"move\": \"accept\" or \"offer\" or \"walk_away\", \"price\": <integer USD>, \"rationale\": <string>, \"evidence_used\": [<string>, ...], \"concerns\": [<string>, ...]}. For walk_away use price 0. rationale: the main reasons for your decision, in at most three sentences. evidence_used: the information you relied on, each item naming its source (a key of information, or world) and the point you used. concerns: the concerns that affected your decision (an empty list if none)."
+    },
+    "evaluation": {
+      "original": "Write in English. Answer with one JSON object and nothing else, with exactly these fields: \"favor\": true if you are in favor of buying on the current offer, false otherwise; \"reasons\": string; \"approval_conditions\": string, what would need to be true for you to support the purchase (empty if none); \"concerns\": string, unresolved concerns (empty if none).",
+      "manual": "Write in English. Answer with one JSON object and nothing else, with exactly these fields: \"favor\": true if you are in favor of buying on the current offer, false otherwise; \"reasons\": string; \"approval_conditions\": string, what would need to be true for you to support the purchase (empty if none); \"concerns\": string, unresolved concerns (empty if none); \"evidence_used\": list of strings, the information you relied on, each item naming its source (a key of information) and the point you used."
+    }
+  },
+  "calls": [
+    {"id": "P1", "phase": "P", "actor": "supplier_negotiator", "role_ko": "공급자 협상 담당자 (가격 초안)",
+     "kind": "move", "side": "seller", "world": "P", "apply_world": false, "on_invalid": "PARSE_FAILURE",
+     "depends_on": [],
+     "sources": [{"id": "supplier_negotiator_brief", "file": "inputs/original/phase_p/supplier_negotiator_brief.json", "reply": "seller_first_offer"}]},
+    {"id": "P2", "phase": "P", "actor": "supplier_manager", "role_ko": "공급자 관리자 (공식 최초 제안 결정)",
+     "kind": "move", "side": "seller", "world": "P", "apply_world": true, "on_invalid": "PARSE_FAILURE",
+     "depends_on": ["P1"],
+     "sources": [{"id": "supplier_draft", "draft": "P1"},
+                 {"id": "supplier_manager_brief", "file": "inputs/original/phase_p/supplier_manager_brief.json", "reply": "seller_first_offer"}]},
+
+    {"id": "E1", "phase": "E", "actor": "buyer_it", "role_ko": "구매자 IT 평가자",
+     "kind": "evaluation", "world": "E", "apply_world": false, "on_invalid": "PARSE_FAILURE",
+     "depends_on": ["P2"],
+     "sources": [{"id": "buyer_it_brief", "file": "inputs/original/phase_e/buyer_it_brief.json", "reply": "evaluation"},
+                 {"id": "deal_terms", "file": "inputs/original/phase_e/deal_terms.json"},
+                 {"id": "supplier_offer", "offer": "P2"}]},
+    {"id": "E2", "phase": "E", "actor": "buyer_finance", "role_ko": "구매자 재무 평가자",
+     "kind": "evaluation", "world": "E", "apply_world": false, "on_invalid": "PARSE_FAILURE",
+     "depends_on": ["P2"],
+     "sources": [{"id": "buyer_finance_brief", "file": "inputs/original/phase_e/buyer_finance_brief.json", "reply": "evaluation"},
+                 {"id": "deal_terms", "file": "inputs/original/phase_e/deal_terms.json"},
+                 {"id": "supplier_offer", "offer": "P2"}]},
+    {"id": "E3", "phase": "E", "actor": "buyer_operations", "role_ko": "구매자 운영 평가자",
+     "kind": "evaluation", "world": "E", "apply_world": false, "on_invalid": "PARSE_FAILURE",
+     "depends_on": ["P2"],
+     "sources": [{"id": "buyer_operations_brief", "file": "inputs/original/phase_e/buyer_operations_brief.json", "reply": "evaluation"},
+                 {"id": "deal_terms", "file": "inputs/original/phase_e/deal_terms.json"},
+                 {"id": "supplier_offer", "offer": "P2"}]},
+    {"id": "E4", "phase": "E", "actor": "buyer_procurement", "role_ko": "구매자 구매 평가자",
+     "kind": "evaluation", "world": "E", "apply_world": false, "on_invalid": "PARSE_FAILURE",
+     "depends_on": ["P2"],
+     "sources": [{"id": "buyer_procurement_brief", "file": "inputs/original/phase_e/buyer_procurement_brief.json", "reply": "evaluation"},
+                 {"id": "deal_terms", "file": "inputs/original/phase_e/deal_terms.json"},
+                 {"id": "supplier_offer", "offer": "P2"}]},
+
+    {"id": "R1", "phase": "R", "actor": "purchasing_director", "role_ko": "구매 책임자 (제한 정보: 구매 평가서만)",
+     "kind": "move", "side": "buyer", "world": "R", "apply_world": true, "on_invalid": "PARSE_FAILURE",
+     "depends_on": ["E1", "E2", "E3", "E4"],
+     "sources": [{"id": "director_brief", "file": "inputs/original/phase_rf/director_brief.json", "reply": "buyer_move"},
+                 {"id": "deal_terms", "file": "inputs/original/phase_rf/deal_terms.json"},
+                 {"id": "supplier_offer", "offer": "P2"},
+                 {"id": "eval_procurement", "evaluation": "E4"}]},
+    {"id": "R2", "phase": "R", "actor": "supplier_negotiator", "role_ko": "공급자 협상 담당자 (대응 초안)",
+     "kind": "move", "side": "seller", "world": "R", "apply_world": false, "on_invalid": "NO_ACTION",
+     "depends_on": ["R1"],
+     "sources": [{"id": "supplier_negotiator_response_brief", "file": "inputs/original/phase_rf/supplier_negotiator_response_brief.json", "reply": "seller_response"}]},
+    {"id": "R3", "phase": "R", "actor": "supplier_manager", "role_ko": "공급자 관리자 (공식 대응 결정)",
+     "kind": "move", "side": "seller", "world": "R", "apply_world": true, "on_invalid": "NO_ACTION",
+     "depends_on": ["R2"],
+     "sources": [{"id": "supplier_draft", "draft": "R2"},
+                 {"id": "supplier_manager_response_brief", "file": "inputs/original/phase_rf/supplier_manager_response_brief.json", "reply": "seller_response"}]},
+
+    {"id": "F1", "phase": "F", "actor": "purchasing_director", "role_ko": "구매 책임자 (전체 정보: 평가서 4건)",
+     "kind": "move", "side": "buyer", "world": "F", "apply_world": true, "on_invalid": "PARSE_FAILURE",
+     "depends_on": ["E1", "E2", "E3", "E4"],
+     "sources": [{"id": "director_brief", "file": "inputs/original/phase_rf/director_brief.json", "reply": "buyer_move"},
+                 {"id": "deal_terms", "file": "inputs/original/phase_rf/deal_terms.json"},
+                 {"id": "supplier_offer", "offer": "P2"},
+                 {"id": "eval_procurement", "evaluation": "E4"},
+                 {"id": "eval_it", "evaluation": "E1"},
+                 {"id": "eval_finance", "evaluation": "E2"},
+                 {"id": "eval_operations", "evaluation": "E3"}]},
+    {"id": "F2", "phase": "F", "actor": "supplier_negotiator", "role_ko": "공급자 협상 담당자 (대응 초안)",
+     "kind": "move", "side": "seller", "world": "F", "apply_world": false, "on_invalid": "NO_ACTION",
+     "depends_on": ["F1"],
+     "sources": [{"id": "supplier_negotiator_response_brief", "file": "inputs/original/phase_rf/supplier_negotiator_response_brief.json", "reply": "seller_response"}]},
+    {"id": "F3", "phase": "F", "actor": "supplier_manager", "role_ko": "공급자 관리자 (공식 대응 결정)",
+     "kind": "move", "side": "seller", "world": "F", "apply_world": true, "on_invalid": "NO_ACTION",
+     "depends_on": ["F2"],
+     "sources": [{"id": "supplier_draft", "draft": "F2"},
+                 {"id": "supplier_manager_response_brief", "file": "inputs/original/phase_rf/supplier_manager_response_brief.json", "reply": "seller_response"}]}
+  ]
+}

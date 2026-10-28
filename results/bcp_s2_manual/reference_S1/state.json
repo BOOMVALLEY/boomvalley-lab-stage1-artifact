@@ -1,0 +1,132 @@
+{
+  "schema": "bcp-manual-session-1",
+  "session": "S1",
+  "created_at": "2026-10-27T02:29:26.721+00:00",
+  "endpoint": "http://127.0.0.1:11434/v1",
+  "model": "qwen2.5:7b-instruct",
+  "model_server_record": {
+    "available": true,
+    "name": "qwen2.5:7b-instruct",
+    "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "modified_at": "2026-09-28T20:42:47.2380456+09:00",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "ggml"
+    }
+  },
+  "kit": {
+    "protocol.json": "bbb863280fdf15234d07aabe2e07e31a0b643b2adaa6103f7973f457dd976009",
+    "bcp_manual.py": "afc1b57d29eea71c7b017c82538fc48458bf5d4e4a56d98df7ce88de7ff0113a",
+    "inputs/original/phase_e/buyer_finance_brief.json": "d50ba3d1779a5fd5e1e5bdace77f8e8709678b5731dac90152e7dcf9f2b5baec",
+    "inputs/original/phase_e/buyer_it_brief.json": "0d9c14df86f1311e46facdb698c2b1e38cd5e951ce1977843375fb9d0abe0b66",
+    "inputs/original/phase_e/buyer_operations_brief.json": "394cc882ff095e22d16166d628a2419592caf6c090881a4ff9e8fcc707d0050a",
+    "inputs/original/phase_e/buyer_procurement_brief.json": "0a092966240d21cb4c06d104bfdf6fbb288a85fe72bfcb24c42c52833b485295",
+    "inputs/original/phase_e/deal_terms.json": "949c89ff9bbd60ebbb5c0a194a122707a8b3bea62f4021a04e9add6b736e1e42",
+    "inputs/original/phase_p/supplier_manager_brief.json": "1ab3fb6530d81ed130e19fa87e2046de291625613db6f02909ad21566649dbd4",
+    "inputs/original/phase_p/supplier_negotiator_brief.json": "768821631602c8b23778be16043e46dd9803e04d16f6af64f07c69d71a3da932",
+    "inputs/original/phase_rf/deal_terms.json": "949c89ff9bbd60ebbb5c0a194a122707a8b3bea62f4021a04e9add6b736e1e42",
+    "inputs/original/phase_rf/director_brief.json": "28a60a82036284beb163986ba1a64fbdc97f2dc25ab53c3ad26ec7048d76169e",
+    "inputs/original/phase_rf/supplier_manager_response_brief.json": "0ca754d674ccb08ac775dc65244ee24f49fb8de494f7938c4e7bcd81a8b2c509",
+    "inputs/original/phase_rf/supplier_negotiator_response_brief.json": "fd6246284cff688f208b7f4d7d55c70073aca0ad5c59c510bed74c12aaa9cf0c"
+  },
+  "bvl_reuse": {
+    "boomvalley_lab_version": "1.0.0rc3",
+    "python": "3.14.5",
+    "modules": {
+      "boomvalley_lab": {
+        "path": "<VENV>\\Lib\\site-packages\\boomvalley_lab\\__init__.py",
+        "sha256": "be812515a4a0844e68b4b7732661c3e9d434e9ca717c216de889a983f6d46eef"
+      },
+      "boomvalley_lab.providers.openai_chat": {
+        "path": "<VENV>\\Lib\\site-packages\\boomvalley_lab\\providers\\openai_chat.py",
+        "sha256": "1af9386c22c05ed9f844de91a22e6e26b154dbd5ff7a1cd9c7eb268e4c4b7628"
+      },
+      "boomvalley_lab.domains.negotiation": {
+        "path": "<VENV>\\Lib\\site-packages\\boomvalley_lab\\domains\\negotiation.py",
+        "sha256": "25e580d14c7278e2bb38fadcad3e2cfcea150d2e52f00139d76b00886691beeb"
+      },
+      "boomvalley_lab.kernel.proposals": {
+        "path": "<VENV>\\Lib\\site-packages\\boomvalley_lab\\kernel\\proposals.py",
+        "sha256": "13a9d6b83422f8ea8cb4826a1642a0418b34d50755ea8680c9de4b434006ce17"
+      },
+      "boomvalley_lab.lifecycle.plugins": {
+        "path": "<VENV>\\Lib\\site-packages\\boomvalley_lab\\lifecycle\\plugins.py",
+        "sha256": "435085e220e1723b7793a5b874957b7e9c885b6381a7cdcef757f1c0fe008b9e"
+      }
+    }
+  },
+  "evidence_class": "MANUAL HARNESS RECORD — not a BVL sealed package, not FULLMT-verified",
+  "done": {
+    "P1": {
+      "sequence": 1,
+      "record_sha256": "e573d5f41ba963d80def2634ca48d91188e00a4bf2729cfd25fbc0f00ef3dc1e",
+      "finished_at": "2026-10-27T02:30:54.102+00:00"
+    },
+    "P2": {
+      "sequence": 2,
+      "record_sha256": "ed1ce279b7a4e9daf03db1591dc0d88b96f928c9cb5d018fa4738375f2adfc86",
+      "finished_at": "2026-10-27T02:32:36.863+00:00"
+    },
+    "E1": {
+      "sequence": 3,
+      "record_sha256": "c7131d30457adebc40012538117a2febbb820015f3f4efde32e513686b79d9e9",
+      "finished_at": "2026-10-27T03:55:21.417+00:00"
+    },
+    "E2": {
+      "sequence": 4,
+      "record_sha256": "d0d5b3660742416d0122534c16d6cbf25b5d8d9e24e2e4f721e1aa2f571fdde8",
+      "finished_at": "2026-10-27T03:57:54.409+00:00"
+    },
+    "E3": {
+      "sequence": 5,
+      "record_sha256": "2525967c4f016b0db281e658e1186555863e27a59b31200d3a015e3fbb5d2c5e",
+      "finished_at": "2026-10-27T04:01:11.419+00:00"
+    },
+    "E4": {
+      "sequence": 6,
+      "record_sha256": "bf8cdf05a5e568c5de485a7ab20de0ae61a54809fc573465c47489e2ab2eee8a",
+      "finished_at": "2026-10-27T04:02:12.703+00:00"
+    },
+    "R1": {
+      "sequence": 7,
+      "record_sha256": "ff075454f74148db4d62604a7a62607770441b5dd1cf1fe56645baad62d18a53",
+      "finished_at": "2026-10-27T04:03:21.953+00:00"
+    },
+    "R2": {
+      "sequence": 8,
+      "record_sha256": "2474c8c11854f1cc57c7fdae1689f165de1b6b60d2de862744a0f38acc05f8a8",
+      "finished_at": "2026-10-27T04:04:28.664+00:00"
+    },
+    "R3": {
+      "sequence": 9,
+      "record_sha256": "568e707a9c54adc9ea0c02da0d7205cb3c5a7756ef3775d3cd7c52e4d84a7bf1",
+      "finished_at": "2026-10-27T04:08:02.582+00:00"
+    },
+    "F1": {
+      "sequence": 10,
+      "record_sha256": "2382f86e22f0427b75faef2490497498ce413182c726808663bb3f453549cc8b",
+      "finished_at": "2026-10-27T04:10:33.869+00:00"
+    },
+    "F2": {
+      "sequence": 11,
+      "record_sha256": "401e03849a6bb58e88f67ac1fcec045333eaedabfabf7a3ef0c26a641c656447",
+      "finished_at": "2026-10-27T04:11:55.232+00:00"
+    },
+    "F3": {
+      "sequence": 12,
+      "record_sha256": "eb8c0bd7017eba01fd42b9358f53b8e519dd12c40fc41255022e9f1f5c786571",
+      "finished_at": "2026-10-27T04:13:27.108+00:00"
+    }
+  },
+  "sequence": 12,
+  "halted": null
+}
